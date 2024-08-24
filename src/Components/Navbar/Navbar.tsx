@@ -151,7 +151,7 @@ const Navbar = () => {
         {user ? (
           <button className={`${basicBtnClassName} bg-red-500 text-white hover:bg-red-900 duration-300`}>Log Out</button>
         ) : (
-          <button className={`${basicBtnClassName} bg-sky-500 text-white hover:bg-sky-600 duration-300`}>Log In</button>
+          <button className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-600 duration-300`}>Log In</button>
         )}
       </div>
     </div>

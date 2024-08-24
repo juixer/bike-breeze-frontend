@@ -16,7 +16,7 @@ const Footer = () => {
         <aside>
           <img src="https://i.ibb.co/JrYxbpg/Logo.png" className="w-52" />
           <p>
-            Copyright © {year} - All right reserved <br /> by ACME Industries Ltd
+            Copyright © {year} - All right reserved <br /> by Bike Breeze Ltd
           </p>
         </aside>
         <nav>
