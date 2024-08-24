@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      minHeight: {
+        'custom': 'calc(100vh - 230px)',
+      },
+    },
   },
   plugins: [
     require('daisyui'),
