@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="hero-content text-neutral-content text-center my-10">
         <div className="max-w-2xl space-y-5">
           <div>
-            <h1 className="mb-5 text-5xl font-bold">Find Your Perfect Ride</h1>
+            <h1 className="mb-5 text-5xl font-bold uppercase">Find Your Perfect Ride</h1>
             <p className="mb-5">
               Discover the best bikes for every adventure. Whether you're
               hitting the trails or cruising the city, we have the perfect bike
