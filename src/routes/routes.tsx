@@ -14,6 +14,7 @@ import AllBikes from "../pages/dashboardPages/admin/AllBikes";
 import AddBike from "../pages/dashboardPages/admin/AddBike";
 import UpdateBike from "../pages/dashboardPages/admin/UpdateBike";
 import UserManagement from "../pages/dashboardPages/admin/UserManagement";
+import ReturnBike from "../pages/dashboardPages/admin/ReturnBike";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
         path: "user-management",
         element: <UserManagement />,
       },
+      {
+        path: "return-bikes",
+        element: <ReturnBike/>
+      }
     ],
   },
 ]);

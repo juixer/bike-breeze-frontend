@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   FaBars,
   FaCalendarCheck,
+  FaCircleCheck,
   FaDoorOpen,
   FaHouse,
   FaMoon,
@@ -31,7 +32,6 @@ const DashboardNav = () => {
 
   const adminNav = (
     <div className="space-y-5">
-  
       {/* 02 */}
       <div className="space-y-2">
         <label className="font-bold ">Bike Management</label>
@@ -60,6 +60,18 @@ const DashboardNav = () => {
             <FaPen /> Add Bike
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `hover:duration-300 text-base font-semibold ${
+                isActive && "bg-sky-500 bg-opacity-20"
+              }`
+            }
+            to={"/dashboard/return-bikes"}
+          >
+            <FaCircleCheck /> Return Bike
+          </NavLink>
+        </li>
       </div>
       {/* 03 */}
       <div className="space-y-2">
@@ -78,42 +90,11 @@ const DashboardNav = () => {
           </NavLink>
         </li>
       </div>
-      {/* 04 */}
-      <div className="space-y-2">
-        <label className="font-bold">Quick Actions </label>
-        <hr />
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              `hover:duration-300 text-base font-semibold ${
-                isActive && "bg-sky-500 bg-opacity-20"
-              }`
-            }
-            to={"/"}
-          >
-            <FaHouse /> Home
-          </NavLink>
-        </li>
-        <li>
-          <button
-            onClick={handleThemeToggle}
-            className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20"
-          >
-            <FaMoon /> Dark Mode: {theme === "black" ? "On" : "Off"}
-          </button>
-        </li>
-        <li>
-          <button className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20">
-            <FaDoorOpen /> Log Out
-          </button>
-        </li>
-      </div>
     </div>
   );
   const userNav = (
     <div className="space-y-5">
       {/* 01 */}
-      
 
       {/* 02 */}
       <div className="space-y-2">
@@ -147,36 +128,6 @@ const DashboardNav = () => {
           >
             <FaCalendarCheck /> My Rentals
           </NavLink>
-        </li>
-      </div>
-      {/* 04 */}
-      <div className="space-y-2">
-        <label className="font-bold">Quick Actions </label>
-        <hr />
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              `hover:duration-300 text-base font-semibold ${
-                isActive && "bg-sky-500 bg-opacity-20"
-              }`
-            }
-            to={"/"}
-          >
-            <FaHouse /> Home
-          </NavLink>
-        </li>
-        <li>
-          <button
-            onClick={handleThemeToggle}
-            className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20"
-          >
-            <FaMoon /> Dark Mode: {theme === "black" ? "On" : "Off"}
-          </button>
-        </li>
-        <li>
-          <button className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20">
-            <FaDoorOpen /> Log Out
-          </button>
         </li>
       </div>
     </div>
@@ -231,6 +182,36 @@ const DashboardNav = () => {
               </li>
             </div>
             {adminNav}
+            {/* 04 */}
+            <div className="space-y-2 mt-2">
+              <label className="font-bold">Quick Actions </label>
+              <hr />
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    `hover:duration-300 text-base font-semibold ${
+                      isActive && "bg-sky-500 bg-opacity-20"
+                    }`
+                  }
+                  to={"/"}
+                >
+                  <FaHouse /> Home
+                </NavLink>
+              </li>
+              <li>
+                <button
+                  onClick={handleThemeToggle}
+                  className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20"
+                >
+                  <FaMoon /> Dark Mode: {theme === "black" ? "On" : "Off"}
+                </button>
+              </li>
+              <li>
+                <button className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20">
+                  <FaDoorOpen /> Log Out
+                </button>
+              </li>
+            </div>
           </ul>
         </div>
       </div>

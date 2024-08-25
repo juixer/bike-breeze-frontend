@@ -4,14 +4,14 @@ import AllBikeTable from "../../../Components/AllBikeTable/AllBikeTable";
 
 const AllBikes = () => {
   return (
-    <div className="my-5">
+    <div className="my-5 space-y-5">
       <Headline text="All Bikes" />
       <h1 className="flex items-center gap-2 font-bold">
         <FaFilter /> Filter
       </h1>
       <div className="flex gap-5 flex-col md:flex-row  my-2">
         <label className="input input-bordered flex items-center gap-2 rounded-md w-full max-w-xs">
-          <input type="text" className="grow" placeholder="Search" />
+          <input type="text" className="grow" placeholder="Search by name" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
