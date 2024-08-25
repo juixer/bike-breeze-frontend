@@ -32,7 +32,7 @@ const HeroSection = () => {
             <input
               type="text"
               placeholder="example @ Pulser"
-              className="input input-bordered w-full max-w-xs h-10 text-black bg-white"
+              className="input input-bordered rounded-md w-full max-w-xs h-10 text-black bg-white"
             />
             <button
               className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 text-white`}

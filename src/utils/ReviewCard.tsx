@@ -3,7 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 const ReviewCard = () => {
   return (
-    <div className="mx-2 border-2 rounded-md p-2 shadow-xl h-60 flex flex-col">
+    <div className="mx-2 border border-sky-300 rounded-md p-2 shadow-xl h-60 flex flex-col">
       <div className="flex gap-5 items-center flex-grow">
         <div className="flex items-center flex-col gap-2">
           <img

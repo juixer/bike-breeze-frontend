@@ -4,7 +4,7 @@ import { basicBtnClassName } from "../../constants";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "lofi"
   );
   useEffect(() => {
     localStorage.setItem("theme", theme as string);
@@ -16,9 +16,9 @@ const Navbar = () => {
 
   const handleThemeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setTheme("dark");
+      setTheme("black");
     } else {
-      setTheme("light");
+      setTheme("lofi");
     }
   };
   const user = true;
@@ -118,8 +118,8 @@ const Navbar = () => {
           <input
             onChange={handleThemeToggle}
             type="checkbox"
-            checked={theme === "dark"}
-            className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+            checked={theme === "black"}
+            className="toggle rounded-full theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
           />
           <svg
             className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
