@@ -75,18 +75,7 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            `hover:duration-300 text-base lg:text-xl font-semibold ${
-              isActive && "bg-black bg-opacity-20"
-            }`
-          }
-          to={"/contact"}
-        >
-          Contact Us
-        </NavLink>
-      </li>
+      
     </>
   );
 

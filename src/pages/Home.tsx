@@ -1,3 +1,4 @@
+import ContactUs from "../Components/ContactUs/ContactUs";
 import Featured from "../Components/Featured/Featured";
 import HeroSection from "../Components/HeroSecction/HeroSection";
 import Reviews from "../Components/Reviews/Reviews";
@@ -10,6 +11,7 @@ const Home = () => {
         <Featured/>
         <Reviews/>
         <WhyChooseUs/>
+        <ContactUs/>
         </div>
     )}
 export default Home;
