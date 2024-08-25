@@ -15,7 +15,7 @@ import Headline from '../../utils/Headline';
 
 const Featured = () => {
   return (
-    <div>
+    <div className='space-y-5'>
       <Headline text='Featured Bikes'/>
       <Swiper
         slidesPerView={3}

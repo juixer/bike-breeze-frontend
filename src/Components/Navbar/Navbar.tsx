@@ -21,7 +21,7 @@ const Navbar = () => {
       setTheme("light");
     }
   };
-  const user = false;
+  const user = true;
 
   const navLinks = (
     <>
@@ -49,6 +49,20 @@ const Navbar = () => {
           All Bikes
         </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `hover:duration-300 text-base lg:text-xl font-semibold ${
+                isActive && "bg-black bg-opacity-20"
+              }`
+            }
+            to={"/dashboard"}
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -149,9 +163,17 @@ const Navbar = () => {
           </svg>
         </label>
         {user ? (
-          <button className={`${basicBtnClassName} bg-red-500 text-white hover:bg-red-900 duration-300`}>Log Out</button>
+          <button
+            className={`${basicBtnClassName} bg-red-500 text-white hover:bg-red-900 duration-300`}
+          >
+            Log Out
+          </button>
         ) : (
-          <button className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-600 duration-300`}>Log In</button>
+          <button
+            className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-600 duration-300`}
+          >
+            Log In
+          </button>
         )}
       </div>
     </div>

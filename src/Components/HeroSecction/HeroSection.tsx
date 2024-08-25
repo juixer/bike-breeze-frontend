@@ -18,7 +18,7 @@ const HeroSection = () => {
           <div>
             <h1 className="mb-5 text-5xl font-bold uppercase">Find Your Perfect Ride</h1>
             <p className="mb-5">
-              Discover the best bikes for every adventure. Whether you're
+              Discover the best bikes from Bike Breeze for every adventure. Whether you're
               hitting the trails or cruising the city, we have the perfect bike
               for you.
             </p>
