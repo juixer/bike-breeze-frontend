@@ -170,7 +170,7 @@ const Navbar = () => {
           </button>
         ) : (
           <button
-            className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-600 duration-300`}
+            className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-700 duration-300`}
           >
             Log In
           </button>
