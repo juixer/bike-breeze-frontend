@@ -31,8 +31,7 @@ const DashboardNav = () => {
 
   const adminNav = (
     <div className="space-y-5">
-      {/* 01 */}
-
+  
       {/* 02 */}
       <div className="space-y-2">
         <label className="font-bold ">Bike Management</label>
@@ -46,7 +45,7 @@ const DashboardNav = () => {
             }
             to={"/dashboard/all-bikes"}
           >
-            <FaMotorcycle /> Available Bikes
+            <FaMotorcycle /> All Bikes
           </NavLink>
         </li>
         <li>
@@ -231,7 +230,7 @@ const DashboardNav = () => {
                 </NavLink>
               </li>
             </div>
-            {userNav}
+            {adminNav}
           </ul>
         </div>
       </div>

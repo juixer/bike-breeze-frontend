@@ -10,6 +10,9 @@ import EditProfile from "../pages/dashboardPages/EditProfile";
 import AvailableBikes from "../pages/AvailableBikes";
 import BikeDetails from "../pages/BikeDetails";
 import MyRental from "../pages/dashboardPages/user/MyRental";
+import AllBikes from "../pages/dashboardPages/admin/AllBikes";
+import AddBike from "../pages/dashboardPages/admin/AddBike";
+import UpdateBike from "../pages/dashboardPages/admin/UpdateBike";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +37,7 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/all-bikes",
+        path: "/available-bikes",
         element: <AvailableBikes />,
       },
       {
@@ -66,9 +69,22 @@ const router = createBrowserRouter([
         element: <AvailableBikes />,
       },
       {
-        path:"my-rentals",
-        element:<MyRental/>
-      }
+        path: "my-rentals",
+        element: <MyRental />,
+      },
+      //   admin
+      {
+        path: "all-bikes",
+        element: <AllBikes />,
+      },
+      {
+        path: "add-bike",
+        element: <AddBike />,
+      },
+      {
+        path: "update-bike",
+        element: <UpdateBike />,
+      },
     ],
   },
 ]);

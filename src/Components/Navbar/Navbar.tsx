@@ -58,9 +58,9 @@ const Navbar = () => {
               isActive && "bg-sky-500 bg-opacity-20"
             }`
           }
-          to={"/all-bikes"}
+          to={"/available-bikes"}
         >
-          All Bikes
+          Available Bikes
         </NavLink>
       </li>
       <li>

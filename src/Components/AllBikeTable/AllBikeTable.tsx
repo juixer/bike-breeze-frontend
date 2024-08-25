@@ -1,25 +1,26 @@
 import { Link } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 
-const BikesTable = () => {
+const AllBikeTable = () => {
   return (
     <div className="overflow-x-auto">
       <table className="table">
         {/* head */}
         <thead>
           <tr>
-            <th></th>
+            <th>Image</th>
             <th>Name</th>
             <th>Brand</th>
             <th>Model</th>
-            <th>Price</th>
+            <th>Price Per Hour</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <td>
+          {/* row 2 */}
+          <tr className="hover">
+            <th>
               <div className="flex items-center gap-3">
                 <div className="avatar">
                   <div className="mask mask-squircle h-16 w-16 object-contain">
@@ -30,32 +31,31 @@ const BikesTable = () => {
                   </div>
                 </div>
               </div>
-            </td>
+            </th>
+            <td className="min-w-40">Pulser 150cc</td>
+            <td className="min-w-40">Bajaj</td>
+            <td className="min-w-40">Pulser</td>
+            <td>1000TK</td>
             <td>
-              <p className="font-semibold min-w-36">Pulser 150 cc</p>
-            </td>
-            <td>
-              <p className="font-semibold min-w-20">Bajaj</p>
-            </td>
-            <td>
-              <p className="font-semibold min-w-20">Pulser</p>
-            </td>
-            <td>
-              <p className="font-semibold min-w-20">100 tk</p>
-            </td>
-            <th>
-              <Link to={'/bike'}>
+              <Link to={'/dashboard/update-bike'}>
                 <button
-                  className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white`}
+                  className={`${basicBtnClassName} bg-emerald-500 duration-300 text-black hover:bg-emerald-600`}
                 >
-                  View Details
+                  Update
                 </button>
               </Link>
-            </th>
+            </td>
+            <td>
+              <button
+                className={`${basicBtnClassName} bg-red-500 duration-300 text-white hover:bg-red-900`}
+              >
+                Delete
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   );
 };
-export default BikesTable;
+export default AllBikeTable;

@@ -1,11 +1,11 @@
 import { FaFilter, FaMotorcycle } from "react-icons/fa6";
-import BikesTable from "../Components/BikesTable/BikesTable";
-import Headline from "../utils/Headline";
+import Headline from "../../../utils/Headline";
+import AllBikeTable from "../../../Components/AllBikeTable/AllBikeTable";
 
-const AvailableBikes = () => {
+const AllBikes = () => {
   return (
     <div className="my-5">
-      <Headline text="Available Bikes" />
+      <Headline text="All Bikes" />
       <h1 className="flex items-center gap-2 font-bold">
         <FaFilter /> Filter
       </h1>
@@ -43,10 +43,10 @@ const AvailableBikes = () => {
       </div>
       <hr />
       <h1 className="my-2 flex items-center gap-2 font-bold">
-        <FaMotorcycle /> Available Bikes
+        <FaMotorcycle /> All Bikes
       </h1>
-      <BikesTable />
+      <AllBikeTable />
     </div>
   );
 };
-export default AvailableBikes;
+export default AllBikes;

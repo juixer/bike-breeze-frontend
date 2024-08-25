@@ -14,7 +14,7 @@ const BikeDetails = () => {
             <h1 className="text-2xl font-bold">Price Per Hour</h1>
             <p className="text-xl">600 BDT</p>
           </div>
-          <BookModal/>
+          <BookModal />
         </div>
       </div>
 
@@ -25,13 +25,18 @@ const BikeDetails = () => {
         <hr />
         <div className="mt-2 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h1 className="text-2xl font-bold">Model</h1>
+            <h1 className="text-2xl font-bold">Name</h1>
             <p className="text-xl">Pulser 150cc</p>
           </div>
 
           <div>
             <h1 className="text-2xl font-bold">Brand</h1>
             <p className="text-xl">Bajaj</p>
+          </div>
+
+          <div>
+            <h1 className="text-2xl font-bold">Model</h1>
+            <p className="text-xl">Pulser</p>
           </div>
 
           <div>

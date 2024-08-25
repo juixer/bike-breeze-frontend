@@ -17,9 +17,9 @@ const TimeLine = () => {
             />
           </svg>
         </div>
-        <div className="timeline-start timeline-box max-w-72">
+        <div className="timeline-start timeline-box max-w-72 flex-col gap-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white">
           <h1 className="font-bold">Launch of the Platform</h1>
-          <p>
+          <p className="text-sm">
             We started with a simple idea: to make bike rentals accessible and
             convenient for everyone. In 2018, Bike Breeze was officially
             launched with a small fleet of bikes and a mission to promote
@@ -45,9 +45,9 @@ const TimeLine = () => {
             />
           </svg>
         </div>
-        <div className="timeline-end timeline-box max-w-72">
+        <div className="timeline-end timeline-box max-w-72 flex-col gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white">
           <h1 className="font-bold">Expansion to Major Cities</h1>
-          <p>
+          <p className="text-sm">
             With growing demand, we expanded our operations to cover major
             cities across the country. By the end of 2019, we had increased our
             bike fleet and established partnerships with local bike shops to
@@ -73,9 +73,9 @@ const TimeLine = () => {
             />
           </svg>
         </div>
-        <div className="timeline-start  timeline-box max-w-72">
+        <div className="timeline-start  timeline-box max-w-72 flex-col gap-2 text-white bg-gradient-to-r from-amber-500 to-orange-500">
           <h1 className="font-bold">Reaching 10,000 Rentals</h1>
-          <p>
+          <p className="text-sm">
             In 2020, we celebrated a significant milestone—10,000 rentals! This
             achievement was a testament to our commitment to customer
             satisfaction and our growing popularity among urban commuters and
@@ -101,9 +101,9 @@ const TimeLine = () => {
             />
           </svg>
         </div>
-        <div className="timeline-end  timeline-box max-w-72">
+        <div className="timeline-end  timeline-box max-w-72 flex flex-col gap-2 text-white bg-gradient-to-r from-emerald-500 to-emerald-700">
           <h1 className="font-bold">Launch of Mobile App</h1>
-          <p>
+          <p className="text-sm">
             To enhance user experience, we introduced a mobile app in 2022,
             allowing customers to book bikes on the go. The app quickly became a
             favorite among our users, making the rental process even more
@@ -129,9 +129,9 @@ const TimeLine = () => {
             />
           </svg>
         </div>
-        <div className="timeline-start  timeline-box max-w-72">
+        <div className="timeline-start  timeline-box max-w-72 flex-col gap-2 text-white bg-gradient-to-r from-indigo-500 to-orange-400">
           <h1 className="font-bold">Expansion to Major Cities</h1>
-          <p>
+          <p className="text-sm">
             In 2023, we were honored to be recognized as a leading bike rental
             platform, receiving accolades for our innovation and customer
             service. This year also saw the opening of our new headquarters and
