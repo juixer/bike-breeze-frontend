@@ -29,7 +29,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             `hover:duration-300 text-base lg:text-xl font-semibold ${
-              isActive && "bg-black bg-opacity-20"
+              isActive && "bg-sky-500 bg-opacity-20"
             }`
           }
           to={"/"}
@@ -37,24 +37,12 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            `hover:duration-300 text-base lg:text-xl font-semibold ${
-              isActive && "bg-black bg-opacity-20"
-            }`
-          }
-          to={"/bikes"}
-        >
-          All Bikes
-        </NavLink>
-      </li>
       {user && (
         <li>
           <NavLink
             className={({ isActive }) =>
               `hover:duration-300 text-base lg:text-xl font-semibold ${
-                isActive && "bg-black bg-opacity-20"
+                isActive && "bg-sky-500 bg-opacity-20"
               }`
             }
             to={"/dashboard"}
@@ -67,7 +55,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             `hover:duration-300 text-base lg:text-xl font-semibold ${
-              isActive && "bg-black bg-opacity-20"
+              isActive && "bg-sky-500 bg-opacity-20"
             }`
           }
           to={"/about"}
@@ -157,7 +145,7 @@ const Navbar = () => {
             Log Out
           </button>
         ) : (
-          <Link to={'/login'}>
+          <Link to={"/login"}>
             <button
               className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-700 duration-300`}
             >
