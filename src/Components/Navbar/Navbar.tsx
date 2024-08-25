@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
       setTheme("lofi");
     }
   };
-  const user = true;
+  const user = false;
 
   const navLinks = (
     <>
@@ -75,7 +75,6 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
-      
     </>
   );
 
@@ -158,11 +157,13 @@ const Navbar = () => {
             Log Out
           </button>
         ) : (
-          <button
-            className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-700 duration-300`}
-          >
-            Log In
-          </button>
+          <Link to={'/login'}>
+            <button
+              className={`${basicBtnClassName} bg-sky-600 text-white hover:bg-sky-700 duration-300`}
+            >
+              Log In
+            </button>
+          </Link>
         )}
       </div>
     </div>
