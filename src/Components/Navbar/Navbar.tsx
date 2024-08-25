@@ -21,7 +21,7 @@ const Navbar = () => {
       setTheme("lofi");
     }
   };
-  const user = false;
+  const user = true;
 
   const navLinks = (
     <>
@@ -45,12 +45,24 @@ const Navbar = () => {
                 isActive && "bg-sky-500 bg-opacity-20"
               }`
             }
-            to={"/dashboard"}
+            to={"/dashboard/profile"}
           >
             Dashboard
           </NavLink>
         </li>
       )}
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            `hover:duration-300 text-base lg:text-xl font-semibold ${
+              isActive && "bg-sky-500 bg-opacity-20"
+            }`
+          }
+          to={"/all-bikes"}
+        >
+          All Bikes
+        </NavLink>
+      </li>
       <li>
         <NavLink
           className={({ isActive }) =>

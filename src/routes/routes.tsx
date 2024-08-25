@@ -7,6 +7,9 @@ import Register from "../pages/Register";
 import Dashboard from "../Components/layouts/Dashboard";
 import Profile from "../pages/dashboardPages/Profile";
 import EditProfile from "../pages/dashboardPages/EditProfile";
+import AvailableBikes from "../pages/AvailableBikes";
+import BikeDetails from "../pages/BikeDetails";
+import MyRental from "../pages/dashboardPages/user/MyRental";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +33,14 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/all-bikes",
+        element: <AvailableBikes />,
+      },
+      {
+        path: "/bike",
+        element: <BikeDetails />,
+      },
     ],
   },
   {
@@ -49,6 +60,15 @@ const router = createBrowserRouter([
         path: "edit-profile",
         element: <EditProfile />,
       },
+      //   user
+      {
+        path: "available-bikes",
+        element: <AvailableBikes />,
+      },
+      {
+        path:"my-rentals",
+        element:<MyRental/>
+      }
     ],
   },
 ]);

@@ -5,13 +5,14 @@ import Reviews from "../Components/Reviews/Reviews";
 import WhyChooseUs from "../Components/WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
-    return(
-        <div className="space-y-5 my-8">
-        <HeroSection/>
-        <Featured/>
-        <Reviews/>
-        <WhyChooseUs/>
-        <ContactUs/>
-        </div>
-    )}
+  return (
+    <div className="space-y-5 my-8">
+      <HeroSection />
+      <Featured />
+      <WhyChooseUs />
+      <Reviews />
+      <ContactUs />
+    </div>
+  );
+};
 export default Home;

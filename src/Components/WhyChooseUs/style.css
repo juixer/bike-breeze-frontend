@@ -1,0 +1,48 @@
+ul {
+	list-style: none;
+	padding-left: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(var(--images), var(--divHeight));
+	gap: var(--divMargin);
+	padding-bottom: calc(var(--images) * var(--divTopPadding));
+	margin-bottom: var(--divMargin);
+}
+
+ul li {
+	position: sticky;
+	top: 0;
+	padding-top: calc(var(--index) * var(--divTopPadding));
+}
+
+ul li div {
+	box-sizing: border-box;
+	height: var(--divHeight);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s;
+}
+
+ul li div img {
+	height: 100%;
+}
+
+#slide1 {
+	--index: 1;
+}
+
+#slide2 {
+	--index: 2;
+}
+
+#slide3 {
+	--index: 3;
+}
+#slide4 {
+	--index: 4;
+}
+
+#slide5 {
+	--index: 5;
+}

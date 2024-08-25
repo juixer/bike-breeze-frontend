@@ -22,7 +22,7 @@ const HeroSection = () => {
               hitting the trails or cruising the city, we have the perfect bike
               for you.
             </p>
-            <Link to={'/bikes'}><button
+            <Link to={'/all-bikes'}><button
               className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 text-white`}
             >
               Explore Bikes
