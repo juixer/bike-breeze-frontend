@@ -13,6 +13,7 @@ import MyRental from "../pages/dashboardPages/user/MyRental";
 import AllBikes from "../pages/dashboardPages/admin/AllBikes";
 import AddBike from "../pages/dashboardPages/admin/AddBike";
 import UpdateBike from "../pages/dashboardPages/admin/UpdateBike";
+import UserManagement from "../pages/dashboardPages/admin/UserManagement";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "update-bike",
         element: <UpdateBike />,
+      },
+      {
+        path: "user-management",
+        element: <UserManagement />,
       },
     ],
   },
