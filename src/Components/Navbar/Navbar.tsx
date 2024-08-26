@@ -22,6 +22,8 @@ const Navbar = () => {
   }, [theme]);
 
   const user = useAppSelector((state) => state.auth.user);
+
+  
   const handleThemeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setTheme("black");

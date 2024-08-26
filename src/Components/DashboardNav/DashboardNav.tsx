@@ -14,7 +14,8 @@ import {
 } from "react-icons/fa6";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { logOut } from "../../redux/features/auth/authSlice";
+import { logOut, TUser } from "../../redux/features/auth/authSlice";
+import { verifyToken } from "../../utils/verifyToken";
 
 const DashboardNav = () => {
   const [theme, setTheme] = useState(
@@ -22,7 +23,9 @@ const DashboardNav = () => {
   );
 
   const dispatch = useAppDispatch();
-  const userRole = useAppSelector((state) => state.auth.user?.role);
+  const token = useAppSelector((state) => state.auth.token);
+
+  const userRole = verifyToken(token as string) as TUser;
 
   const navigate = useNavigate();
 
@@ -194,8 +197,8 @@ const DashboardNav = () => {
                 </NavLink>
               </li>
             </div>
-            {userRole === "admin" && adminNav}
-            {userRole === "user" && userNav}
+            {userRole.role === "admin" && adminNav}
+            {userRole.role === "user" && userNav}
             {/* 04 */}
             <div className="space-y-2 mt-2">
               <label className="font-bold">Quick Actions </label>

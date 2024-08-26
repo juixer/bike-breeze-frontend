@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <>
       {isLoading ? (
-        <div className="min-h-[95vh]flex justify-center items-center">
+        <div className="min-h-[95vh] flex justify-center items-center">
           <Loading />
         </div>
       ) : (
