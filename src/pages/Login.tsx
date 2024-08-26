@@ -5,10 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../redux/features/auth/authApi";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { verifyToken } from "../utils/verifyToken";
+import { useAppDispatch } from "../redux/hooks";
+import { setUser } from "../redux/features/auth/authSlice";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginUser] = useLoginUserMutation();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -25,8 +29,10 @@ const Login = () => {
       };
 
       const loginResult = await loginUser(userInfo).unwrap();
-      toast.success(loginResult.message,{id:toastId, duration:3000})
-      navigate('/dashboard/profile')
+      const user = verifyToken(loginResult.token);
+      dispatch(setUser({ user: user, token: loginResult.token }));
+      toast.success(loginResult.message, { id: toastId, duration: 3000 });
+      navigate("/dashboard/profile");
     } catch (error) {
       console.log(error);
       toast.warning("Something went wrong...", { duration: 3000, id: toastId });
