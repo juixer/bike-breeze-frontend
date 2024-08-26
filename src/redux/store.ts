@@ -5,7 +5,7 @@ import numberReducer from "./features/number/numberSlice"
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
-    key: "storeName",
+    key: "user",
     storage
 }
 
