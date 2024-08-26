@@ -21,7 +21,7 @@ const Navbar = () => {
       setTheme("lofi");
     }
   };
-  const user = true;
+  const user = false;
 
   const navLinks = (
     <>
