@@ -9,16 +9,21 @@ import {
 } from "../../../redux/features/admin/bikesApi";
 import Loading from "../../../utils/Loading";
 import NoData from "../../../utils/NoData";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+
+type TBrand = {
+  _id: number;
+  brand: string;
+}
 
 const AllBikes = () => {
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-  const handleBrand = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleBrand = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setBrand(e.target.value);
   };
 
@@ -82,7 +87,7 @@ const AllBikes = () => {
             ;
             {brands.data.map(
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (brand: any, i: string) => {
+              (brand: TBrand, i: string) => {
                 return <option value={brand.brand} key={i}>{brand.brand}</option>;
               }
             )}

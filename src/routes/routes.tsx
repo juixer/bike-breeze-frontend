@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         element: <AddBike />,
       },
       {
-        path: "update-bike",
+        path: "update-bike/:bikeID",
         element: <UpdateBike />,
       },
       {
