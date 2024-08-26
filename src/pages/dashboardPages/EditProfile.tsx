@@ -46,7 +46,6 @@ const EditProfile = () => {
         address: data.address,
         profile_picture: imgRes?.data?.data?.url,
       };
-      console.log(userInfo);
       const updateResult = await updateUser(userInfo).unwrap();
       toast.success(updateResult.message, { id: toastId, duration: 3000 });
       navigate("/dashboard/profile");
