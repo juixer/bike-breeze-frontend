@@ -12,7 +12,7 @@ import {
   FaRegUser,
   FaUserGroup,
 } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut } from "../../redux/features/auth/authSlice";
 
@@ -20,8 +20,12 @@ const DashboardNav = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "lofi"
   );
-  const dispatch = useAppDispatch()
-  const userRole = useAppSelector((state) => state.auth.user?.role)
+
+  const dispatch = useAppDispatch();
+  const userRole = useAppSelector((state) => state.auth.user?.role);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     localStorage.setItem("theme", theme as string);
     const localTheme = localStorage.getItem("theme");
@@ -35,8 +39,9 @@ const DashboardNav = () => {
   };
 
   const handleLogOut = () => {
- dispatch(logOut())
-  }
+    dispatch(logOut());
+    navigate("/");
+  };
 
   const adminNav = (
     <div className="space-y-5">
@@ -216,7 +221,10 @@ const DashboardNav = () => {
                 </button>
               </li>
               <li>
-                <button onClick={handleLogOut} className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20">
+                <button
+                  onClick={handleLogOut}
+                  className="hover:duration-300 text-base font-semibold hover:bg-black hover:bg-opacity-20"
+                >
                   <FaDoorOpen /> Log Out
                 </button>
               </li>

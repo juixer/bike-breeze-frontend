@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut } from "../../redux/features/auth/authSlice";
@@ -8,7 +8,11 @@ const Navbar = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "lofi"
   );
-  const dispatch = useAppDispatch()
+
+  const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     localStorage.setItem("theme", theme as string);
     const localTheme = localStorage.getItem("theme");
@@ -17,7 +21,7 @@ const Navbar = () => {
       ?.setAttribute("data-theme", localTheme as string);
   }, [theme]);
 
-  const user = useAppSelector((state) => state.auth.user)
+  const user = useAppSelector((state) => state.auth.user);
   const handleThemeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setTheme("black");
@@ -27,8 +31,9 @@ const Navbar = () => {
   };
 
   const handleLogOut = () => {
-    dispatch(logOut())
-  }
+    dispatch(logOut());
+    navigate("/");
+  };
 
   const navLinks = (
     <>
@@ -158,7 +163,8 @@ const Navbar = () => {
           </svg>
         </label>
         {user ? (
-          <button onClick={handleLogOut}
+          <button
+            onClick={handleLogOut}
             className={`${basicBtnClassName} bg-red-500 text-white hover:bg-red-900 duration-300`}
           >
             Log Out
