@@ -5,9 +5,16 @@ import UserManagementTable, {
 import Headline from "../../../utils/Headline";
 import { useGetAllUsersQuery } from "../../../redux/features/user/userApi";
 import Loading from "../../../utils/Loading";
+import { ChangeEvent, useState } from "react";
 
 const UserManagement = () => {
-  const { data: allUsers, isLoading } = useGetAllUsersQuery(undefined);
+  const [email, setEmail] = useState("");
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const { data: allUsers, isLoading } = useGetAllUsersQuery(email, {skipPollingIfUnfocused: true,});
 
   return (
     <>
@@ -22,7 +29,12 @@ const UserManagement = () => {
             <FaMagnifyingGlass /> Search
           </h1>
           <label className="input input-bordered flex items-center gap-2 rounded-md w-full max-w-xs my-2">
-            <input type="text" className="grow" placeholder="Search by email" />
+            <input
+              type="text"
+              className="grow"
+              onChange={handleSearch}
+              placeholder="Search by email"
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"

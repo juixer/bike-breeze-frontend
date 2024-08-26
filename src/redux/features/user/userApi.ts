@@ -34,10 +34,10 @@ const userApi = baseApi.injectEndpoints({
     }),
     // get all users
     getAllUsers: builder.query({
-      query: () => {
+      query: (email) => {
         const token = store.getState().auth.token;
         return {
-          url: "/users",
+          url: `/users/all-users?email=${email}`,
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
