@@ -24,7 +24,7 @@ const Login = () => {
     const toastId = toast.loading("Please wait...");
     try {
       const userInfo = {
-        email: data.email,
+        email: data.email.toLowerCase(),
         password: data.password,
       };
 

@@ -44,9 +44,9 @@ const AddBike = () => {
           name: data.name,
           brand: data.brand,
           model: data.model,
-          pricePerHour: Number(data.pricePerHour),
-          cc: Number(data.cc),
-          year: Number(data.year),
+          pricePerHour: data.pricePerHour,
+          cc: data.cc,
+          year: data.year,
           description: data.description,
           image: imgRes.data.data.url,
         };
@@ -92,19 +92,19 @@ const AddBike = () => {
           className="input input-bordered  w-full lg:w-2/4 rounded-md"
         />
         <input
-          type="text"
+          type="number"
           placeholder="Enter bike price here"
           {...register("pricePerHour", { required: true })}
           className="input input-bordered  w-full lg:w-2/4 rounded-md"
         />
         <input
-          type="text"
+          type="number"
           placeholder="Enter bike cc here"
           {...register("cc", { required: true })}
           className="input input-bordered  w-full lg:w-2/4 rounded-md"
         />
         <input
-          type="text"
+          type="number"
           placeholder="Enter bike release year here"
           {...register("year", { required: true })}
           className="input input-bordered  w-full lg:w-2/4 rounded-md"

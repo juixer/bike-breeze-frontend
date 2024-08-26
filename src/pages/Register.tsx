@@ -42,7 +42,7 @@ const Register = () => {
 
       const userInfo = {
         name: data.name,
-        email: data.email,
+        email: data.email.toLowerCase(),
         password: data.password,
         phone: data.phone,
         address: data.address,

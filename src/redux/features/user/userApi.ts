@@ -15,7 +15,7 @@ const userApi = baseApi.injectEndpoints({
           },
         };
       },
-      providesTags: ['profile'],
+      providesTags: ["profile"],
     }),
     // update profile information
     updateUserProfile: builder.mutation({
@@ -30,9 +30,72 @@ const userApi = baseApi.injectEndpoints({
           },
         };
       },
-      invalidatesTags:['profile']
+      invalidatesTags: ["profile"],
+    }),
+    // get all users
+    getAllUsers: builder.query({
+      query: () => {
+        const token = store.getState().auth.token;
+        return {
+          url: "/users",
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      providesTags: ["user"],
+    }),
+    // delete user profile
+    deleteUser: builder.mutation({
+      query: (email) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/users/delete/${email}`,
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      invalidatesTags: ["profile", "user"],
+    }),
+    // Promote user
+    promoteUser: builder.mutation({
+      query: (email) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/users/promote/${email}`,
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      invalidatesTags: ["profile", "user"],
+    }),
+    // Promote user
+    demoteUser: builder.mutation({
+      query: (email) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/users/demote/${email}`,
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      invalidatesTags: ["profile", "user"],
     }),
   }),
 });
 
-export const { useGetUserProfileQuery, useUpdateUserProfileMutation } = userApi;
+export const {
+  useGetUserProfileQuery,
+  useUpdateUserProfileMutation,
+  useGetAllUsersQuery,
+  useDeleteUserMutation,
+  usePromoteUserMutation,
+  useDemoteUserMutation,
+} = userApi;

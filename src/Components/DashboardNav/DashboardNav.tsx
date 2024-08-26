@@ -197,7 +197,7 @@ const DashboardNav = () => {
                 </NavLink>
               </li>
             </div>
-            {userRole.role === "admin" && adminNav}
+            {(userRole.role === "admin" || userRole.role === "superAdmin") && adminNav}
             {userRole.role === "user" && userNav}
             {/* 04 */}
             <div className="space-y-2 mt-2">

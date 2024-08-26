@@ -1,6 +1,8 @@
 import { FaFilter, FaMotorcycle } from "react-icons/fa6";
 import Headline from "../../../utils/Headline";
-import AllBikeTable from "../../../Components/AllBikeTable/AllBikeTable";
+import AllBikeTable, {
+  TBikeInfo,
+} from "../../../Components/AllBikeTable/AllBikeTable";
 import { useGetAllBikesQuery } from "../../../redux/features/admin/bikesApi";
 import Loading from "../../../utils/Loading";
 
@@ -81,11 +83,9 @@ const AllBikes = () => {
                 </tr>
               </thead>
               <tbody>
-              {bikes.data.map((bike, index) => {
-            return (
-              <AllBikeTable key={index} bike={bike}/>
-            );
-          })}
+                {bikes.data.map((bike: TBikeInfo, index: string) => {
+                  return <AllBikeTable key={index} bike={bike} />;
+                })}
               </tbody>
             </table>
           </div>
