@@ -7,9 +7,7 @@ import { useGetAllBikesQuery } from "../../../redux/features/admin/bikesApi";
 import Loading from "../../../utils/Loading";
 
 const AllBikes = () => {
-  const { data: bikes, isLoading } = useGetAllBikesQuery(undefined, {
-    pollingInterval: 15000,
-  });
+  const { data: bikes, isLoading } = useGetAllBikesQuery(undefined, {skipPollingIfUnfocused: true,});
 
   console.log(bikes);
   return (

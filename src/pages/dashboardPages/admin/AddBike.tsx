@@ -44,16 +44,16 @@ const AddBike = () => {
           name: data.name,
           brand: data.brand,
           model: data.model,
-          pricePerHour: data.pricePerHour,
-          cc: data.cc,
-          year: data.year,
+          pricePerHour: Number(data.pricePerHour),
+          cc: Number(data.cc),
+          year: Number(data.year),
           description: data.description,
           image: imgRes.data.data.url,
         };
 
         const bikeResult = await addBike(bikeInfo).unwrap();
         toast.success(bikeResult.message, { duration: 3000, id: toastId });
-        navigate('/dashboard/all-bikes')
+        navigate("/dashboard/all-bikes");
       } else {
         toast.warning("uploading image failed..", {
           duration: 300,

@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { useDeleteBikeMutation } from "../../redux/features/admin/bikesApi";
+import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 export type TBikeInfo = {
   _id: string;
@@ -20,6 +23,35 @@ export type TBikeInfo = {
 };
 
 const AllBikeTable = ({ bike }: { bike: TBikeInfo }) => {
+  const [deleteBike] = useDeleteBikeMutation();
+
+  const handleDelete = async (bikeId: string) => {
+    try {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const deleteResult = await deleteBike(bikeId).unwrap();
+
+          Swal.fire({
+            title: "Deleted!",
+            text: `${deleteResult.message}`,
+            icon: "success",
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      toast.warning("Something went wrong..", { duration: 3000 });
+    }
+  };
+
   return (
     <>
       <tr className="hover">
@@ -51,6 +83,7 @@ const AllBikeTable = ({ bike }: { bike: TBikeInfo }) => {
         </td>
         <td>
           <button
+            onClick={() => handleDelete(bike._id)}
             className={`${basicBtnClassName} bg-red-500 duration-300 text-white hover:bg-red-900`}
           >
             Delete
