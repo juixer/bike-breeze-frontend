@@ -11,7 +11,7 @@ import Loading from "../../../utils/Loading";
 import NoData from "../../../utils/NoData";
 import { useState } from "react";
 
-type TBrand = {
+export type TBrand = {
   _id: number;
   brand: string;
 }
@@ -86,7 +86,6 @@ const AllBikes = () => {
             </option>
             ;
             {brands.data.map(
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (brand: TBrand, i: string) => {
                 return <option value={brand.brand} key={i}>{brand.brand}</option>;
               }

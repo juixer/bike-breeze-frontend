@@ -1,18 +1,32 @@
 import { FaCircleInfo } from "react-icons/fa6";
 import BookModal from "../Components/BookModal/BookModal";
+import { useParams } from "react-router-dom";
+import { useGetSingleBikeInfoQuery } from "../redux/features/admin/bikesApi";
+import Loading from "../utils/Loading";
 
 const BikeDetails = () => {
+  const { bikeID } = useParams();
+
+  const { data: bike, isLoading } = useGetSingleBikeInfoQuery(bikeID);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[95vh] flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <div className="space-y-5 my-5 ">
       <div className="flex justify-center items-center flex-col md:flex-row">
         <img
-          src="https://5.imimg.com/data5/SELLER/Default/2022/1/EW/OK/QD/3511041/bajaj-pulsar-150cc-motorcycle.png"
+          src={bike.data.image}
           className="w-96 h-96 object-contain lg:w-[450px] lg:h-[450px]"
         />
         <div className="space-y-2">
           <div>
-            <h1 className="text-2xl font-bold">Price Per Hour</h1>
-            <p className="text-xl">600 BDT</p>
+            <h1 className="text-2xl font-bold">{bike.data.name}</h1>
+            <p className="text-xl">{bike.data.pricePerHour}TK Per Hour</p>
           </div>
           <BookModal />
         </div>
@@ -25,37 +39,30 @@ const BikeDetails = () => {
         <hr />
         <div className="mt-2 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h1 className="text-2xl font-bold">Name</h1>
-            <p className="text-xl">Pulser 150cc</p>
-          </div>
-
-          <div>
             <h1 className="text-2xl font-bold">Brand</h1>
-            <p className="text-xl">Bajaj</p>
+            <p className="text-xl">{bike.data.brand}</p>
           </div>
 
           <div>
             <h1 className="text-2xl font-bold">Model</h1>
-            <p className="text-xl">Pulser</p>
+            <p className="text-xl">{bike.data.model}</p>
           </div>
 
           <div>
             <h1 className="text-2xl font-bold">CC</h1>
-            <p className="text-xl">150cc</p>
+            <p className="text-xl">{bike.data.cc}cc</p>
           </div>
 
           <div>
             <h1 className="text-2xl font-bold">Year</h1>
-            <p className="text-xl">2015</p>
+            <p className="text-xl">{bike.data.year}</p>
           </div>
           <hr className="col-span-1 md:col-span-2 lg:col-span-4" />
 
           <div className="col-span-1 md:col-span-2 lg:col-span-4">
             <h1 className="text-2xl font-bold">Description</h1>
             <p className="text-xl">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              quis voluptates alias voluptatem eos unde qui explicabo in at
-              consequatur.
+            {bike.data.description}
             </p>
           </div>
         </div>

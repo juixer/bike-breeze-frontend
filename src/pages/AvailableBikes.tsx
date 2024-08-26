@@ -1,8 +1,50 @@
 import { FaFilter, FaMotorcycle } from "react-icons/fa6";
 import BikesTable from "../Components/BikesTable/BikesTable";
 import Headline from "../utils/Headline";
+import {
+  useGetAvailableBikeQuery,
+  useGetBikeBrandQuery,
+} from "../redux/features/admin/bikesApi";
+import Loading from "../utils/Loading";
+import NoData from "../utils/NoData";
+import { TBikeInfo } from "../Components/AllBikeTable/AllBikeTable";
+import { useState } from "react";
+import { TBrand } from "./dashboardPages/admin/AllBikes";
 
 const AvailableBikes = () => {
+  const [name, setName] = useState("");
+  const [brand, setBrand] = useState("");
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+  const handleBrand = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setBrand(e.target.value);
+  };
+
+  const query = {
+    name,
+    brand,
+  };
+  const { data: availableBikes, isLoading } = useGetAvailableBikeQuery(
+    query,
+    { pollingInterval: 15000 }
+  );
+
+  const { data: brands } = useGetBikeBrandQuery(undefined);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[95vh] flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
+
+  if (!availableBikes || availableBikes.length === 0) {
+    return <NoData />;
+  }
+
   return (
     <div className="my-5">
       <Headline text="Available Bikes" />
@@ -11,7 +53,12 @@ const AvailableBikes = () => {
       </h1>
       <div className="flex gap-5 flex-col md:flex-row  my-2">
         <label className="input input-bordered flex items-center gap-2 rounded-md w-full max-w-xs">
-          <input type="text" className="grow" placeholder="Search by name" />
+          <input
+            type="text"
+            className="grow"
+            onChange={handleSearch}
+            placeholder="Search by name"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -26,26 +73,44 @@ const AvailableBikes = () => {
           </svg>
         </label>
 
-        <select className="select select-bordered w-full max-w-xs rounded-md">
-          <option disabled selected>
-            select bike brand
-          </option>
-          <option>Bajaj</option>
-          <option>Yamaha</option>
+        <select
+          onChange={handleBrand}
+          className="select select-bordered w-full max-w-xs rounded-md"
+        >
+          <option value={""}>All</option>;
+          {brands.data.map((brand: TBrand, i: string) => {
+            return (
+              <option value={brand.brand} key={i}>
+                {brand.brand}
+              </option>
+            );
+          })}
         </select>
-
-        <div className="w-full lg:w-1/4 flex flex-row items-center gap-2">
-          <input type="checkbox" id="available" className="checkbox rounded" />
-          <label className="checkbox-label" htmlFor="available">
-            Available Bikes
-          </label>
-        </div>
       </div>
       <hr />
       <h1 className="my-2 flex items-center gap-2 font-bold">
         <FaMotorcycle /> Available Bikes
       </h1>
-      <BikesTable />
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {availableBikes.data.map((available: TBikeInfo, index: string) => {
+              return <BikesTable key={index} available={available} />;
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

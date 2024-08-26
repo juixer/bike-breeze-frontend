@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <AvailableBikes />,
       },
       {
-        path: "/bike",
+        path: "/bike/:bikeID",
         element: <BikeDetails />,
       },
     ],
