@@ -20,10 +20,16 @@ const bikesApi = baseApi.injectEndpoints({
     }),
     // get all bikes from DB
     getAllBikes: builder.query({
-      query: () => ({
-        url: "/bikes",
-        method: "GET",
-      }),
+      query: (query) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/bikes/all-bikes?name=${query.name}&brand=${query.brand}`,
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
       providesTags: ["bike"],
     }),
     // delete Bike
@@ -40,6 +46,13 @@ const bikesApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["bike"],
     }),
+    // bike brand 
+    getBikeBrand: builder.query({
+      query:()=> ({
+        url: "/bikes/brands",
+        method: "GET",
+      })
+    })
   }),
 });
 
@@ -47,4 +60,5 @@ export const {
   useAddBikeMutation,
   useGetAllBikesQuery,
   useDeleteBikeMutation,
+  useGetBikeBrandQuery,
 } = bikesApi;
