@@ -47,6 +47,19 @@ const rentalAPi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["rental"],
     }),
+    // getUserRentals
+    getUserRentals: builder.query({
+      query:()=>{
+        const token = store.getState().auth.token;
+        return {
+          url: "/rentals",
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      }
+    })
   }),
 });
 
@@ -54,4 +67,5 @@ export const {
   useCreateRentalMutation,
   useGetAllRentalsQuery,
   useReturnRentalMutation,
+  useGetUserRentalsQuery
 } = rentalAPi;

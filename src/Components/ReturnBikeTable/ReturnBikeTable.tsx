@@ -20,7 +20,7 @@ export type TRentalInfo = {
 };
 
 const ReturnBikeTable = ({ rental }: { rental: TRentalInfo }) => {
-  const formattedDate = moment(rental.startTime).format('MMMM Do, YYYY, h:mm:ss A')
+  const formattedStartTime = moment(rental.startTime).format('MMMM Do, YYYY, h:mm:ss A')
   return (
     <tr className="hover">
       <td className="min-w-40">{rental.bikeId.name}</td>
@@ -28,7 +28,7 @@ const ReturnBikeTable = ({ rental }: { rental: TRentalInfo }) => {
       <td className="min-w-40">{rental.bikeId.model}</td>
       <td className="min-w-40">{rental.userId.name}</td>
       <td className="min-w-40">{rental.userId.email}</td>
-      <td className="min-w-40">{formattedDate}</td>
+      <td className="min-w-40">{formattedStartTime}</td>
       <td>
         <ReturnBikeModel rentalId={rental._id} />
       </td>

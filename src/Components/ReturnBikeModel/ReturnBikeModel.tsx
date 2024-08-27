@@ -25,15 +25,30 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
 
         const rentalResult = await returnRental(rentalInfo).unwrap();
         toast.success(rentalResult.message, { duration: 300 });
+        simulateEscKeyPress();
       } else {
         toast.warning("Date and time must be selected.", { duration: 3000 });
       }
     } catch (error) {
       console.log(error);
-      toast.warning("You can't select time before Start Time check data and time again", { duration: 3000 });
+      toast.warning(
+        "You can't select time before Start Time check data and time again",
+        { duration: 3000 }
+      );
     }
   };
+  const simulateEscKeyPress =() => {
+    const escEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      keyCode: 27,
+      code: "Escape",
+      which: 27,
+      bubbles: true,
+      cancelable: true,
+    });
 
+    document.dispatchEvent(escEvent);
+  }
   return (
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}

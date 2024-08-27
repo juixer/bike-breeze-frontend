@@ -1,43 +1,24 @@
+import moment from "moment";
 import { basicBtnClassName } from "../../constants";
+import { TRentalInfo } from "../ReturnBikeTable/ReturnBikeTable";
 
-const UnpaidTables = () => {
+const UnpaidTables = ({ unpaid }: { unpaid: TRentalInfo }) => {
+  const formattedStartTime = moment(unpaid.startTime).format('MMMM Do, YYYY, h:mm:ss A')
+  const formattedReturnTime = moment(unpaid.returnTime).format('MMMM Do, YYYY, h:mm:ss A')
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Start Time</th>
-            <th>Return Time</th>
-            <th>Total Cost</th>
-            <th>Pending Payment</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* row 1*/}
-          <tr className="hover">
-            <td className="min-w-40">Pulser 150cc</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td>1000TK</td>
-            <td>
-              <button className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white w-full lg:w-2/4`}>Pay</button>
-            </td>
-          </tr>
-          {/* row 1*/}
-          <tr className="hover">
-            <td className="min-w-40">Pulser 150cc</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td>1000TK</td>
-            <td>
-              <button className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white w-full lg:w-2/4`}>Pay</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <tr className="hover">
+      <td className="min-w-40">{unpaid.bikeId.name}</td>
+      <td className="min-w-40">{formattedStartTime}</td>
+      <td className="min-w-40">{formattedReturnTime}</td>
+      <td>{unpaid.totalCost}TK</td>
+      <td>
+        <button
+          className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white w-full lg:w-2/4`}
+        >
+          Pay
+        </button>
+      </td>
+    </tr>
   );
 };
 export default UnpaidTables;
