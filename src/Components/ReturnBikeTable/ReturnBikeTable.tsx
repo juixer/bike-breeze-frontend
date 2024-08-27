@@ -30,7 +30,7 @@ const ReturnBikeTable = ({ rental }: { rental: TRentalInfo }) => {
       <td className="min-w-40">{rental.userId.email}</td>
       <td className="min-w-40">{formattedDate}</td>
       <td>
-        <ReturnBikeModel />
+        <ReturnBikeModel rentalId={rental._id} />
       </td>
     </tr>
   );

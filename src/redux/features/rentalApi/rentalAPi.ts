@@ -32,7 +32,26 @@ const rentalAPi = baseApi.injectEndpoints({
       },
       providesTags: ["rental"],
     }),
+    // return rental
+    returnRental: builder.mutation({
+      query: (rentalInfo) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/rentals/${rentalInfo.rentalId}/return`,
+          method: "PUT",
+          body: rentalInfo,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      invalidatesTags: ["rental"],
+    }),
   }),
 });
 
-export const { useCreateRentalMutation, useGetAllRentalsQuery } = rentalAPi;
+export const {
+  useCreateRentalMutation,
+  useGetAllRentalsQuery,
+  useReturnRentalMutation,
+} = rentalAPi;

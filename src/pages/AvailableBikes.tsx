@@ -41,7 +41,7 @@ const AvailableBikes = () => {
     );
   }
 
-  if (!availableBikes || availableBikes.length === 0) {
+  if (!availableBikes || availableBikes.data.length === 0) {
     return <NoData />;
   }
 

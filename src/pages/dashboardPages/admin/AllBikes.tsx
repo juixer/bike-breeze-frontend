@@ -47,7 +47,7 @@ const AllBikes = () => {
     );
   }
 
-  if (!bikes || bikes.length === 0) {
+  if (!bikes || bikes.data.length === 0) {
     return <NoData />;
   }
 

@@ -10,6 +10,7 @@ const ReturnBike = () => {
     pollingInterval: 15000,
   });
 
+
   if (isLoading) {
     return (
       <div className="min-h-[95vh] flex justify-center items-center">
@@ -18,7 +19,7 @@ const ReturnBike = () => {
     );
   }
 
-  if (!rentalBikes || rentalBikes.length === 0) {
+  if (!rentalBikes || rentalBikes.data.length === 0) {
     return <NoData />;
   }
   return (

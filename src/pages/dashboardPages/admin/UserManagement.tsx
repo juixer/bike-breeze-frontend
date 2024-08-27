@@ -28,7 +28,7 @@ const UserManagement = () => {
     );
   }
 
-  if (!allUsers || allUsers.length === 0) {
+  if (!allUsers || allUsers.data.length === 0) {
     return <NoData />;
   }
 
