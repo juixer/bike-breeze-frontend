@@ -24,7 +24,7 @@ const ToTop = () => {
   return (
     <button
       onClick={handleTakeToTop}
-      className={`${basicBtnClassName} bg-sky-500 text-white fixed bottom-16 right-10  duration-300 ${
+      className={`${basicBtnClassName} bg-sky-500 text-white fixed bottom-16 right-10 z-50  duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >

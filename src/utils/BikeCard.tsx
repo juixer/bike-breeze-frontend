@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import { basicBtnClassName } from "../constants";
+import { TBikeInfo } from "../Components/AllBikeTable/AllBikeTable";
 
-const BikeCard = () => {
+const BikeCard = ({ rented }: { rented: TBikeInfo }) => {
   return (
-    <div className="card card-compact bg-base-100 w-96 shadow-xl border border-sky-300 rounded-md">
-      <figure>
-        <img
-          src="https://5.imimg.com/data5/SELLER/Default/2022/1/EW/OK/QD/3511041/bajaj-pulsar-150cc-motorcycle.png"
-        />
+    <div className="card card-compact bg-base-100 shadow-xl border border-sky-300 rounded-md">
+      <figure className="flex justify-center items-center w-full h-full">
+        <img src={rented.image} />
       </figure>
       <div className="card-body">
-        <h2 className="text-xl font-bold text-center">Pulser Bike 150cc</h2>
+        <h2 className="text-xl font-bold text-center">{rented.name}</h2>
         <div className="card-actions">
-          <Link to={'/bike'} className="w-full">
+          <Link to={`/bike/${rented._id}`} className="w-full">
             <button
               className={`${basicBtnClassName} w-full bg-sky-600 text-white hover:bg-sky-700`}
             >

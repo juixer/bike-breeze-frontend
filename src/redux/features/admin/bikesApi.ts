@@ -89,6 +89,20 @@ const bikesApi = baseApi.injectEndpoints({
       },
       providesTags: ["bike"],
     }),
+    // most rented Bike
+    getMostRentedBike: builder.query({
+      query: () => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/bikes/most-Rented`,
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      providesTags: ["bike"],
+    }),
   }),
 });
 
@@ -99,5 +113,6 @@ export const {
   useGetBikeBrandQuery,
   useUpdateBikeInfoMutation,
   useGetSingleBikeInfoQuery,
-  useGetAvailableBikeQuery
+  useGetAvailableBikeQuery,
+  useGetMostRentedBikeQuery
 } = bikesApi;
