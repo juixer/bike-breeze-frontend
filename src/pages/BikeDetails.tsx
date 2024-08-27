@@ -35,7 +35,7 @@ const BikeDetails = () => {
             <h1 className="text-2xl font-bold">{bike.data.name}</h1>
             <p className="text-xl">{bike.data.pricePerHour}TK Per Hour</p>
           </div>
-          <BookModal />
+          <BookModal bikeID={bike.data._id} />
         </div>
       </div>
 
