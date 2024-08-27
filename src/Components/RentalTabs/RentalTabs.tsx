@@ -69,7 +69,26 @@ const RentalTabs = () => {
             <NoData />
           ) : (
             <div className="border w-full rounded-md">
-              <PaidTables />
+              <div className="overflow-x-auto">
+                <table className="table">
+                  {/* head */}
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Start Time</th>
+                      <th>Return Time</th>
+                      <th>Total Cost</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rentalData.data.paidResult.map(
+                      (paid: TRentalInfo, index: string) => {
+                        return <PaidTables key={index} paid={paid} />;
+                      }
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </div>

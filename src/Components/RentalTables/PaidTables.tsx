@@ -1,34 +1,22 @@
-const PaidTables = () => {
+import moment from "moment";
+import { TRentalInfo } from "../ReturnBikeTable/ReturnBikeTable";
+
+const PaidTables = ({ paid }: { paid: TRentalInfo }) => {
+  const formattedStartTime = moment(paid.startTime).format(
+    "MMMM Do, YYYY, h:mm:ss A"
+  );
+  const formattedReturnTime = moment(paid.returnTime).format(
+    "MMMM Do, YYYY, h:mm:ss A"
+  );
+
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Start Time</th>
-            <th>Return Time</th>
-            <th>Total Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* row 1*/}
-          <tr className="hover">
-            <td className="min-w-40">Pulser 150cc</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td>1000TK</td>
-          </tr>
-          {/* row 1*/}
-          <tr className="hover">
-            <td className="min-w-40">Pulser 150cc</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td>1000TK</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <tr className="hover">
+      <td className="min-w-40">{paid.bikeId.name}</td>
+      <td className="min-w-40">{formattedStartTime}</td>
+      <td className="min-w-40">{formattedReturnTime}</td>
+      <td>{paid.totalCost}TK</td>
+      <td></td>
+    </tr>
   );
 };
 export default PaidTables;
