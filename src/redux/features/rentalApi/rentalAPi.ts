@@ -16,8 +16,23 @@ const rentalAPi = baseApi.injectEndpoints({
           },
         };
       },
+      invalidatesTags: ["rental"],
+    }),
+    // get all rentals
+    getAllRentals: builder.query({
+      query: () => {
+        const token = store.getState().auth.token;
+        return {
+          url: "/rentals/all-rentals",
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      providesTags: ["rental"],
     }),
   }),
 });
 
-export const {useCreateRentalMutation} = rentalAPi;
+export const { useCreateRentalMutation, useGetAllRentalsQuery } = rentalAPi;

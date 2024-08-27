@@ -1,7 +1,7 @@
 import { FaMagnifyingGlass, FaUserGroup } from "react-icons/fa6";
 import UserManagementTable, {
   TUser,
-} from "../../../Components/UserManagentTable/UserManagementTable";
+} from "../../../Components/UserManagementTable/UserManagementTable";
 import Headline from "../../../utils/Headline";
 import { useGetAllUsersQuery } from "../../../redux/features/user/userApi";
 import Loading from "../../../utils/Loading";
@@ -15,10 +15,10 @@ const UserManagement = () => {
     setEmail(e.target.value);
   };
 
-  const {
-    data: allUsers,
-    isLoading,
-  } = useGetAllUsersQuery(email, { skipPollingIfUnfocused: true,pollingInterval:15000 });
+  const { data: allUsers, isLoading } = useGetAllUsersQuery(email, {
+    skipPollingIfUnfocused: true,
+    pollingInterval: 15000,
+  });
 
   if (isLoading) {
     return (

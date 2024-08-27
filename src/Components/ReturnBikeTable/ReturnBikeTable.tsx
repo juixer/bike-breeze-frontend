@@ -1,33 +1,38 @@
+import { TBikeInfo } from "../AllBikeTable/AllBikeTable";
 import ReturnBikeModel from "../ReturnBikeModel/ReturnBikeModel";
+import { TUser } from "../UserManagementTable/UserManagementTable";
+import moment from "moment";
+export type TRentalInfo = {
+  _id: string;
+  userId: TUser;
+  bikeId: TBikeInfo;
+  startTime: string;
+  returnTime: string;
+  totalCost: number;
+  isReturned: boolean;
+  advance_payment: boolean;
+  payment_status: string;
+  transaction_Id?: string;
+  advance_transaction_Id?: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
 
-const ReturnBikeTable = () => {
+const ReturnBikeTable = ({ rental }: { rental: TRentalInfo }) => {
+  const formattedDate = moment(rental.startTime).format('MMMM Do, YYYY, h:mm:ss A')
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Start Time</th>
-            <th>Return</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* row 2 */}
-          <tr className="hover">
-            <td className="min-w-40">Pulser 150cc</td>
-            <td className="min-w-40">Bajaj</td>
-            <td className="min-w-40">Pulser</td>
-            <td className="min-w-40">Date: 10-10-2024 Time: 10:00Am</td>
-            <td>
-              <ReturnBikeModel />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <tr className="hover">
+      <td className="min-w-40">{rental.bikeId.name}</td>
+      <td className="min-w-40">{rental.bikeId.brand}</td>
+      <td className="min-w-40">{rental.bikeId.model}</td>
+      <td className="min-w-40">{rental.userId.name}</td>
+      <td className="min-w-40">{rental.userId.email}</td>
+      <td className="min-w-40">{formattedDate}</td>
+      <td>
+        <ReturnBikeModel />
+      </td>
+    </tr>
   );
 };
 export default ReturnBikeTable;

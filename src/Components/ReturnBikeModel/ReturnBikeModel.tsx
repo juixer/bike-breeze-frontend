@@ -33,8 +33,8 @@ const ReturnBikeModel = () => {
         <FaCircleCheck /> Return
       </button>
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box border">
-          <div className="flex justify-end mb-2">
+      <div className="modal-box border">
+          <div className="flex justify-end">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <button className="rounded-full bg-red-600 p-1 text-white">
@@ -42,24 +42,27 @@ const ReturnBikeModel = () => {
               </button>
             </form>
           </div>
-          <div>
-            <form onSubmit={handleBook} className="space-y-2">
-              <h1>Date</h1>
+          <div className="my-3">
+            <h1 className="font-bold">Please select bike return date and time</h1>
+          </div>
+          <div >
+            <form onSubmit={handleBook} className="space-y-4">
+              <h1 className="font-semibold">Date</h1>
               <input
                 type="date"
                 name="date"
                 className="input input-bordered rounded-md w-full"
               />
-              <h1>Time</h1>
+              <h1 className="font-semibold">Time</h1>
               <input
                 type="time"
                 name="time"
                 className="input input-bordered rounded-md w-full"
               />
               
-              <div className="flex justify-end">
+              <div>
                 <button
-                  className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white`}
+                  className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 w-full text-white`}
                 >
                   Confirm
                 </button>
