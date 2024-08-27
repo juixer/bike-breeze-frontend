@@ -58,6 +58,20 @@ const rentalAPi = baseApi.injectEndpoints({
             Authorization: `Bearer ${token}`,
           },
         };
+      },
+      providesTags: ["rental"]
+    }),
+    // user payment
+    userPayment: builder.mutation({
+      query: (rentalId) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/rentals/${rentalId}/payment`,
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
       }
     })
   }),
@@ -67,5 +81,6 @@ export const {
   useCreateRentalMutation,
   useGetAllRentalsQuery,
   useReturnRentalMutation,
-  useGetUserRentalsQuery
+  useGetUserRentalsQuery,
+  useUserPaymentMutation
 } = rentalAPi;
