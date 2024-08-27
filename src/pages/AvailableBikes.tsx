@@ -26,10 +26,9 @@ const AvailableBikes = () => {
     name,
     brand,
   };
-  const { data: availableBikes, isLoading } = useGetAvailableBikeQuery(
-    query,
-    { pollingInterval: 15000 }
-  );
+  const { data: availableBikes, isLoading } = useGetAvailableBikeQuery(query, {
+    pollingInterval: 15000,
+  });
 
   const { data: brands } = useGetBikeBrandQuery(undefined);
 
@@ -39,10 +38,6 @@ const AvailableBikes = () => {
         <Loading />
       </div>
     );
-  }
-
-  if (!availableBikes || availableBikes.data.length === 0) {
-    return <NoData />;
   }
 
   return (
@@ -91,26 +86,32 @@ const AvailableBikes = () => {
       <h1 className="my-2 flex items-center gap-2 font-bold">
         <FaMotorcycle /> Available Bikes
       </h1>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Brand</th>
-              <th>Model</th>
-              <th>Price</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {availableBikes.data.map((available: TBikeInfo, index: string) => {
-              return <BikesTable key={index} available={available} />;
-            })}
-          </tbody>
-        </table>
-      </div>
+      {!availableBikes || availableBikes.data.length === 0 ? (
+        <NoData />
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {availableBikes.data.map(
+                (available: TBikeInfo, index: string) => {
+                  return <BikesTable key={index} available={available} />;
+                }
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

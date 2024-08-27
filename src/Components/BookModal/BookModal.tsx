@@ -24,8 +24,8 @@ const BookModal = ({ bikeID }: { bikeID: string }) => {
           startTime: formattedDateTime,
         };
 
+        toast.loading("Please wait...",{duration:5000})
         const rentalResult = await createRental(rentalInfo).unwrap();
-        console.log(rentalResult);
         
         if(rentalResult.success){
           window.location.href = rentalResult.data.payment_url

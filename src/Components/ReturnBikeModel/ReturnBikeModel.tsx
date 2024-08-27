@@ -22,7 +22,6 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
           rentalId: rentalId,
           returnTime: formattedDateTime,
         };
-
         const rentalResult = await returnRental(rentalInfo).unwrap();
         toast.success(rentalResult.message, { duration: 300 });
         simulateEscKeyPress();
@@ -37,7 +36,7 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
       );
     }
   };
-  const simulateEscKeyPress =() => {
+  const simulateEscKeyPress = () => {
     const escEvent = new KeyboardEvent("keydown", {
       key: "Escape",
       keyCode: 27,
@@ -48,7 +47,7 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
     });
 
     document.dispatchEvent(escEvent);
-  }
+  };
   return (
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}

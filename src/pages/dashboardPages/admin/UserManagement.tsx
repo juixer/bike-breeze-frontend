@@ -28,10 +28,6 @@ const UserManagement = () => {
     );
   }
 
-  if (!allUsers || allUsers.data.length === 0) {
-    return <NoData />;
-  }
-
   return (
     <>
       <div className="my-5 space-y-5">
@@ -63,24 +59,28 @@ const UserManagement = () => {
         <h1 className="flex items-center gap-2 font-bold my-2">
           <FaUserGroup /> Users
         </h1>
-        <div className="overflow-x-auto my-2">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Promote</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {allUsers.data.map((user: TUser, index: string) => {
-                return <UserManagementTable key={index} user={user} />;
-              })}
-            </tbody>
-          </table>
-        </div>
+        {!allUsers || allUsers.data.length === 0 ? (
+          <NoData />
+        ) : (
+          <div className="overflow-x-auto my-2">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Promote</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allUsers.data.map((user: TUser, index: string) => {
+                  return <UserManagementTable key={index} user={user} />;
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </>
   );

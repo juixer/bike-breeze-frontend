@@ -19,6 +19,7 @@ export type TBikeInfo = {
   image: string;
   createdAt: string;
   updatedAt: string;
+  rented: number;
   __v: number;
 };
 
@@ -72,6 +73,7 @@ const AllBikeTable = ({ bike }: { bike: TBikeInfo }) => {
         <td className="min-w-40">{bike.brand}</td>
         <td className="min-w-40">{bike.model}</td>
         <td>{bike.pricePerHour}TK</td>
+        <td>{bike.rented}</td>
         <td>
           <Link to={`/dashboard/update-bike/${bike._id}`}>
             <button

@@ -14,7 +14,7 @@ import { useState } from "react";
 export type TBrand = {
   _id: number;
   brand: string;
-}
+};
 
 const AllBikes = () => {
   const [name, setName] = useState("");
@@ -29,8 +29,8 @@ const AllBikes = () => {
 
   const query = {
     name,
-    brand
-  }
+    brand,
+  };
 
   const { data: bikes, isLoading } = useGetAllBikesQuery(query, {
     pollingInterval: 15000,
@@ -47,9 +47,6 @@ const AllBikes = () => {
     );
   }
 
-  if (!bikes || bikes.data.length === 0) {
-    return <NoData />;
-  }
 
   return (
     <>
@@ -80,43 +77,50 @@ const AllBikes = () => {
             </svg>
           </label>
 
-          <select onChange={handleBrand} className="select select-bordered w-full max-w-xs rounded-md">
-            <option value={''}>
-              All
-            </option>
-            ;
-            {brands.data.map(
-              (brand: TBrand, i: string) => {
-                return <option value={brand.brand} key={i}>{brand.brand}</option>;
-              }
-            )}
+          <select
+            onChange={handleBrand}
+            className="select select-bordered w-full max-w-xs rounded-md"
+          >
+            <option value={""}>All</option>;
+            {brands.data.map((brand: TBrand, i: string) => {
+              return (
+                <option value={brand.brand} key={i}>
+                  {brand.brand}
+                </option>
+              );
+            })}
           </select>
         </div>
         <hr />
         <h1 className="my-2 flex items-center gap-2 font-bold">
           <FaMotorcycle /> All Bikes
         </h1>
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Price Per Hour</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {bikes.data.map((bike: TBikeInfo, index: string) => {
-                return <AllBikeTable key={index} bike={bike} />;
-              })}
-            </tbody>
-          </table>
-        </div>
+        {!bikes || bikes.data.length === 0 ? (
+          <NoData />
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Price Per Hour</th>
+                  <th>Total Rented</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {bikes.data.map((bike: TBikeInfo, index: string) => {
+                  return <AllBikeTable key={index} bike={bike} />;
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </>
   );
