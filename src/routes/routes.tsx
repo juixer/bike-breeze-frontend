@@ -17,12 +17,13 @@ import UserManagement from "../pages/dashboardPages/admin/UserManagement";
 import ReturnBike from "../pages/dashboardPages/admin/ReturnBike";
 import ProtectedRoute from "../Components/layouts/ProtectedRoute";
 import ProtectedAdminRoute from "../Components/layouts/ProtectedAdminRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <div></div>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         index: true,
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
-    errorElement: <div></div>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         index: true,

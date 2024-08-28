@@ -22,7 +22,7 @@ const Featured = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className="flex justify-center items-center my-16">
         <Loading />
       </div>
     );
