@@ -4,7 +4,7 @@ import Headline from "../utils/Headline";
 import {
   useGetAvailableBikeQuery,
   useGetBikeBrandQuery,
-} from "../redux/features/admin/bikesApi";
+} from "../redux/features/bike/bikesApi";
 import Loading from "../utils/Loading";
 import NoData from "../utils/NoData";
 import { TBikeInfo } from "../Components/AllBikeTable/AllBikeTable";
@@ -16,6 +16,7 @@ import FramerContainer from "../Components/layouts/FramerContainer";
 const AvailableBikes = () => {
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
+
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);

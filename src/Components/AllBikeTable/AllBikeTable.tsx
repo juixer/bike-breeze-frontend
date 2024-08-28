@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { useDeleteBikeMutation } from "../../redux/features/admin/bikesApi";
+import { useDeleteBikeMutation } from "../../redux/features/bike/bikesApi";
 import Swal from "sweetalert2";
 import { toast } from "sonner";
 

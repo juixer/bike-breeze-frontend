@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useWriteReviewMutation } from "../redux/features/review/review.api";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-import { useGetBikeBrandQuery } from "../redux/features/admin/bikesApi";
+import { useGetBikeBrandQuery } from "../redux/features/bike/bikesApi";
 import Loading from "../utils/Loading";
 import { TBrand } from "./dashboardPages/admin/AllBikes";
 import HelmetElement from "../utils/HelmetElement";

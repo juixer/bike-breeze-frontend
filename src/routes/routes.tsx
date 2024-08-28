@@ -22,6 +22,7 @@ import WriteReview from "../pages/WriteReview";
 import ReviewManagement from "../pages/dashboardPages/admin/ReviewManagement";
 import PaymentSuccess from "../pages/PaymentSuccess";
 import PaymentFailed from "../pages/PaymentFailed";
+import SearchTermBike from "../pages/SearchTermBike";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/available-bikes",
         element: <AvailableBikes />,
+      },
+      {
+        path: "/search-bikes",
+        element: <SearchTermBike />,
       },
       {
         path: "/payment-successful",

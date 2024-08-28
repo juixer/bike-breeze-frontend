@@ -1,7 +1,7 @@
 import { FaCircleInfo } from "react-icons/fa6";
 import BookModal from "../Components/BookModal/BookModal";
 import { useParams } from "react-router-dom";
-import { useGetSingleBikeInfoQuery } from "../redux/features/admin/bikesApi";
+import { useGetSingleBikeInfoQuery } from "../redux/features/bike/bikesApi";
 import Loading from "../utils/Loading";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";

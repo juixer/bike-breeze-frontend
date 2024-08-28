@@ -11,7 +11,7 @@ import "./styles.css";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import BikeCard from "../../utils/BikeCard";
 import Headline from "../../utils/Headline";
-import { useGetMostRentedBikeQuery } from "../../redux/features/admin/bikesApi";
+import { useGetMostRentedBikeQuery } from "../../redux/features/bike/bikesApi";
 import Loading from "../../utils/Loading";
 import { TBikeInfo } from "../AllBikeTable/AllBikeTable";
 import NoData from "../../utils/NoData";

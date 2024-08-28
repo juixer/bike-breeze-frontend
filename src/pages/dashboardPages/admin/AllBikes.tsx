@@ -6,7 +6,7 @@ import AllBikeTable, {
 import {
   useGetAllBikesQuery,
   useGetBikeBrandQuery,
-} from "../../../redux/features/admin/bikesApi";
+} from "../../../redux/features/bike/bikesApi";
 import Loading from "../../../utils/Loading";
 import NoData from "../../../utils/NoData";
 import { useState } from "react";

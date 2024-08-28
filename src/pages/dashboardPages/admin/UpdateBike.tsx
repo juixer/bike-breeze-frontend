@@ -4,7 +4,7 @@ import Headline from "../../../utils/Headline";
 import {
   useGetSingleBikeInfoQuery,
   useUpdateBikeInfoMutation,
-} from "../../../redux/features/admin/bikesApi";
+} from "../../../redux/features/bike/bikesApi";
 import Loading from "../../../utils/Loading";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";

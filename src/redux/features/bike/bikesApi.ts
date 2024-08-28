@@ -89,6 +89,16 @@ const bikesApi = baseApi.injectEndpoints({
       },
       providesTags: ["bike"],
     }),
+    // available bike info
+    searchTermBike: builder.query({
+      query:(searchTerm)=>{
+        return {
+          url: `/bikes/searchTerm-bikes?searchTerm=${searchTerm}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["bike"],
+    }),
     // most rented Bike
     getMostRentedBike: builder.query({
       query: () => {
@@ -114,5 +124,6 @@ export const {
   useUpdateBikeInfoMutation,
   useGetSingleBikeInfoQuery,
   useGetAvailableBikeQuery,
-  useGetMostRentedBikeQuery
+  useGetMostRentedBikeQuery,
+  useSearchTermBikeQuery
 } = bikesApi;

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { basicBtnClassName } from "../../../constants";
-import { useAddBikeMutation } from "../../../redux/features/admin/bikesApi";
+import { useAddBikeMutation } from "../../../redux/features/bike/bikesApi";
 import Headline from "../../../utils/Headline";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
