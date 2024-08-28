@@ -49,7 +49,7 @@ const rentalAPi = baseApi.injectEndpoints({
     }),
     // getUserRentals
     getUserRentals: builder.query({
-      query:()=>{
+      query: () => {
         const token = store.getState().auth.token;
         return {
           url: "/rentals",
@@ -59,21 +59,36 @@ const rentalAPi = baseApi.injectEndpoints({
           },
         };
       },
-      providesTags: ["rental"]
+      providesTags: ["rental"],
     }),
-    // user payment
-    userPayment: builder.mutation({
-      query: (rentalId) => {
+    // user coupon payment
+    userCouponPayment: builder.mutation({
+      query: (rental) => {
         const token = store.getState().auth.token;
         return {
-          url: `/rentals/${rentalId}/payment`,
+          url: `/rentals/${rental.id}/coupon?coupon=${rental.coupon}`,
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
-      }
-    })
+      },
+      invalidatesTags: ["rental", "coupon", "bike"],
+    }),
+    // user  payment
+    userPayment: builder.mutation({
+      query: (id) => {
+        const token = store.getState().auth.token;
+        return {
+          url: `/rentals/${id}/payment`,
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      invalidatesTags: ["rental", "coupon", "bike"],
+    }),
   }),
 });
 
@@ -82,5 +97,6 @@ export const {
   useGetAllRentalsQuery,
   useReturnRentalMutation,
   useGetUserRentalsQuery,
-  useUserPaymentMutation
+  useUserPaymentMutation,
+  useUserCouponPaymentMutation
 } = rentalAPi;

@@ -1,4 +1,5 @@
 import ContactUs from "../Components/ContactUs/ContactUs";
+import Coupon from "../Components/Coupon/Coupon";
 import Featured from "../Components/Featured/Featured";
 import HeroSection from "../Components/HeroSecction/HeroSection";
 import FramerContainer from "../Components/layouts/FramerContainer";
@@ -15,6 +16,7 @@ const Home = () => {
         <Featured />
         <WhyChooseUs />
         <Reviews />
+        <Coupon/>
         <ContactUs />
       </div>
     </FramerContainer>

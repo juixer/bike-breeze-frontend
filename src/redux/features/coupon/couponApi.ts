@@ -86,6 +86,7 @@ const couponApi = baseApi.injectEndpoints({
           },
         };
       },
+      providesTags: ["coupon"],
     }),
   }),
 });
