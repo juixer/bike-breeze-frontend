@@ -77,85 +77,115 @@ const AddBike = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center w-full space-y-5"
         >
-          <input
-            type="text"
-            placeholder="Enter bike name here"
-            {...register("name", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Enter bike brand here"
-            {...register("brand", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Enter bike model here"
-            {...register("model", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <input
-            type="number"
-            placeholder="Enter bike price here"
-            {...register("pricePerHour", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <input
-            type="number"
-            placeholder="Enter bike cc here"
-            {...register("cc", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <input
-            type="number"
-            placeholder="Enter bike release year here"
-            {...register("year", { required: true })}
-            className="input input-bordered  w-full lg:w-2/4 rounded-md"
-          />
-          <textarea
-            className="textarea textarea-bordered w-full lg:w-2/4 rounded-md h-32"
-            {...register("description", { required: true })}
-            placeholder="Enter bike description"
-          ></textarea>
-          <input
-            type="file"
-            {...register("image", { required: true })}
-            className="file-input file-input-bordered file-input-info  w-full lg:w-2/4 rounded-md bgsky6"
-          />
-
-          <div className="w-full lg:w-2/4 flex flex-col">
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter bike name here"
+              {...register("name", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
             {errors.name && (
-              <span className="text-red-500">Please enter bike name</span>
-            )}
-            {errors.brand && (
-              <span className="text-red-500">Please enter bike brand</span>
-            )}
-            {errors.model && (
-              <span className="text-red-500">Please enter bike model</span>
-            )}
-            {errors.pricePerHour && (
-              <span className="text-red-500">
-                Please enter bike price per hour
-              </span>
-            )}
-            {errors.cc && (
-              <span className="text-red-500">Please enter bike cc</span>
-            )}
-            {errors.year && (
-              <span className="text-red-500">
-                Please enter bike release year
-              </span>
-            )}
-            {errors.description && (
-              <span className="text-red-500">
-                Please enter bike description
-              </span>
-            )}
-            {errors.image && (
-              <span className="text-red-500">Please provide bike image</span>
+              <span className="text-red-500">This Field is required</span>
             )}
           </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter bike brand here"
+              {...register("brand", { required: true })}
+              className="input input-bordered  w-full  rounded-md"
+            />
+            {errors.brand && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter bike model here"
+              {...register("model", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.model && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="number"
+              placeholder="Enter bike price here"
+              {...register("pricePerHour", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.pricePerHour && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="number"
+              placeholder="Enter bike cc here"
+              {...register("cc", { required: true })}
+              className="input input-bordered  w-full  rounded-md"
+            />
+            {errors.cc && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="number"
+              placeholder="Enter bike release year here"
+              {...register("year", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.year && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <textarea
+              className="textarea textarea-bordered w-full rounded-md h-32"
+              {...register("description", { required: true })}
+              placeholder="Enter bike description"
+            ></textarea>
+            {errors.description && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-2/4 flex flex-col gap-2">
+            <input
+              type="file"
+              {...register("image", { required: true })}
+              className="file-input file-input-bordered file-input-info  w-full  rounded-md"
+            />
+
+            {errors.image && (
+              <span className="text-red-500">
+                <span className="text-red-500">This Field is required</span>
+              </span>
+            )}
+          </div>
+
           <button
             className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-2/4`}
           >

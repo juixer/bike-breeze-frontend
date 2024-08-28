@@ -4,7 +4,7 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({
         // backendURL
-        baseUrl: "http://localhost:5000/api",
+        baseUrl: "https://bike-breeze.vercel.app/api",
         credentials: "include",
     }),
     tagTypes:["profile", "bike", "user", "rental","review","coupon"],
