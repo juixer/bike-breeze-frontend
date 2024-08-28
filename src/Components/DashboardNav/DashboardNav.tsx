@@ -12,7 +12,7 @@ import {
   FaRegUser,
   FaUserGroup,
 } from "react-icons/fa6";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut, TUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
@@ -25,7 +25,7 @@ const DashboardNav = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.auth.token);
 
-  const userRole = verifyToken(token as string) as TUser;
+
 
   const navigate = useNavigate();
 
@@ -36,6 +36,13 @@ const DashboardNav = () => {
       .querySelector("html")
       ?.setAttribute("data-theme", localTheme as string);
   }, [theme]);
+
+  let userRole
+  if(!token){
+    return <Navigate to={"/login"} replace={true} />;
+  }else{
+     userRole = verifyToken(token as string) as TUser;
+  }
 
   const handleThemeToggle = () => {
     setTheme((activeTheme) => (activeTheme === "black" ? "lofi" : "black"));

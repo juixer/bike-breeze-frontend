@@ -15,6 +15,8 @@ import AddBike from "../pages/dashboardPages/admin/AddBike";
 import UpdateBike from "../pages/dashboardPages/admin/UpdateBike";
 import UserManagement from "../pages/dashboardPages/admin/UserManagement";
 import ReturnBike from "../pages/dashboardPages/admin/ReturnBike";
+import ProtectedRoute from "../Components/layouts/ProtectedRoute";
+import ProtectedAdminRoute from "../Components/layouts/ProtectedAdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/bike/:bikeID",
-        element: <BikeDetails />,
+        element: (
+          <ProtectedRoute>
+            <BikeDetails />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -55,46 +61,86 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Profile />,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "edit-profile",
-        element: <EditProfile />,
+        element: (
+          <ProtectedRoute>
+            <EditProfile />
+          </ProtectedRoute>
+        ),
       },
       //   user
       {
         path: "available-bikes",
-        element: <AvailableBikes />,
+        element: (
+          <ProtectedRoute>
+            <AvailableBikes />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "my-rentals",
-        element: <MyRental />,
+        element: (
+          <ProtectedRoute>
+            <MyRental />
+          </ProtectedRoute>
+        ),
       },
       //   admin
       {
         path: "all-bikes",
-        element: <AllBikes />,
+        element: (
+          <ProtectedAdminRoute>
+            <AllBikes />
+          </ProtectedAdminRoute>
+        ),
       },
       {
         path: "add-bike",
-        element: <AddBike />,
+        element: (
+          <ProtectedAdminRoute>
+            <AddBike />
+          </ProtectedAdminRoute>
+        ),
       },
       {
         path: "update-bike/:bikeID",
-        element: <UpdateBike />,
+        element: (
+          <ProtectedAdminRoute>
+            <UpdateBike />
+          </ProtectedAdminRoute>
+        ),
       },
       {
         path: "user-management",
-        element: <UserManagement />,
+        element: (
+          <ProtectedAdminRoute>
+            <UserManagement />
+          </ProtectedAdminRoute>
+        ),
       },
       {
         path: "return-bikes",
-        element: <ReturnBike/>
-      }
+        element: (
+          <ProtectedAdminRoute>
+            <ReturnBike />
+          </ProtectedAdminRoute>
+        ),
+      },
     ],
   },
 ]);

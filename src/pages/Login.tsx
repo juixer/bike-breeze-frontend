@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import Headline from "../utils/Headline";
 import { basicBtnClassName } from "../constants";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../redux/features/auth/authApi";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -14,6 +14,9 @@ const Login = () => {
   const [loginUser] = useLoginUserMutation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+
   const {
     register,
     handleSubmit,
@@ -32,7 +35,7 @@ const Login = () => {
       const user = verifyToken(loginResult.token);
       dispatch(setUser({ user: user, token: loginResult.token }));
       toast.success(loginResult.message, { id: toastId, duration: 3000 });
-      navigate("/dashboard/profile");
+      navigate(location.state ? location.state : "/dashboard/profile");
     } catch (error) {
       console.log(error);
       toast.warning("Something went wrong...", { duration: 3000, id: toastId });
