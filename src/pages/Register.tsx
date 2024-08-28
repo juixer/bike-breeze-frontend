@@ -5,6 +5,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
 import { useRegisterUserMutation } from "../redux/features/auth/authApi";
 import { toast } from "sonner";
+import HelmetElement from "../utils/HelmetElement";
 
 const Register = () => {
   const [registerUser] = useRegisterUserMutation();
@@ -61,6 +62,7 @@ const Register = () => {
 
   return (
     <div className="space-y-5 my-5">
+      <HelmetElement text="Register"/>
       <Headline text="register" />
       <form
         onSubmit={handleSubmit(onSubmit)}

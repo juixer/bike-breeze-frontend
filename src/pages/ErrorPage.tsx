@@ -3,10 +3,12 @@ import ErrorAni from "../assets/errorAni.json";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaHouse } from "react-icons/fa6";
 import { basicBtnClassName } from "../constants";
+import HelmetElement from "../utils/HelmetElement";
 const ErrorPage = () => {
   const navigate = useNavigate();
   return (
     <div className="flex justify-center items-center">
+      <HelmetElement text="Error"/>
       <div className="flex lg:flex-row flex-col gap-5">
         <div>
           <Lottie animationData={ErrorAni} loop={true} />

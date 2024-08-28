@@ -6,6 +6,7 @@ import Loading from "../../utils/Loading";
 import { toast } from "sonner";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import HelmetElement from "../../utils/HelmetElement";
 
 const EditProfile = () => {
   const { data: userInfo, isLoading } = useGetUserProfileQuery(undefined);
@@ -63,6 +64,7 @@ const EditProfile = () => {
         </div>
       ) : (
         <div className="space-y-5 my-5">
+          <HelmetElement text="Edit Profile"/>
           <Headline text="edit profile" />
           <form
             onSubmit={handleSubmit(onSubmit)}

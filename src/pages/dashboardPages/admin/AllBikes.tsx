@@ -10,6 +10,7 @@ import {
 import Loading from "../../../utils/Loading";
 import NoData from "../../../utils/NoData";
 import { useState } from "react";
+import HelmetElement from "../../../utils/HelmetElement";
 
 export type TBrand = {
   _id: number;
@@ -51,6 +52,7 @@ const AllBikes = () => {
   return (
     <>
       <div className="my-5 space-y-5">
+      <HelmetElement text="All bikes"/>
         <Headline text="All Bikes" />
         <h1 className="flex items-center gap-2 font-bold">
           <FaFilter /> Filter

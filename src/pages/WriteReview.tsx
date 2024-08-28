@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetBikeBrandQuery } from "../redux/features/admin/bikesApi";
 import Loading from "../utils/Loading";
 import { TBrand } from "./dashboardPages/admin/AllBikes";
+import HelmetElement from "../utils/HelmetElement";
 
 const WriteReview = () => {
   const [rating, setRating] = useState(0);
@@ -56,6 +57,7 @@ const WriteReview = () => {
 
   return (
     <div className="space-y-5 my-5">
+      <HelmetElement text="Write Review"/>
       <Headline text="Write a review" />
       <form
         onSubmit={handleSubmit(onSubmit)}

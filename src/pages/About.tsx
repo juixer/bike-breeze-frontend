@@ -1,10 +1,12 @@
 import TimeLine from "../Components/TimeLine/TimeLine";
 import { teamMembers } from "../constants";
 import Headline from "../utils/Headline";
+import HelmetElement from "../utils/HelmetElement";
 
 const About = () => {
   return (
     <div className="space-y-5 my-5">
+      <HelmetElement text="About Us"/>
       <Headline text="About us" />
 
       <div className="space-y-3">

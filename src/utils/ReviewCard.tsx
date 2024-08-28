@@ -18,7 +18,7 @@ const ReviewCard = ({ review }: { review: TReviewInfo }) => {
               value={review.rating}
             />
           </div>
-          <p className="max-w-60 overflow-hidden">{review.comment}</p>
+          <p className="max-w-60 max-h-44 overflow-hidden">{review.comment}</p>
         </div>
       </div>
     </div>

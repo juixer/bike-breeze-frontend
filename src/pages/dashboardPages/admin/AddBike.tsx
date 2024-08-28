@@ -5,6 +5,7 @@ import Headline from "../../../utils/Headline";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import axios from "axios";
+import HelmetElement from "../../../utils/HelmetElement";
 
 const AddBike = () => {
   const [addBike] = useAddBikeMutation();
@@ -68,6 +69,7 @@ const AddBike = () => {
 
   return (
     <div className="space-y-5 my-5">
+      <HelmetElement text="Add bike"/>
       <Headline text="Add Bike" />
       <form
         onSubmit={handleSubmit(onSubmit)}

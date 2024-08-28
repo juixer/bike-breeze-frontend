@@ -9,6 +9,7 @@ import Loading from "../../../utils/Loading";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import axios from "axios";
+import HelmetElement from "../../../utils/HelmetElement";
 
 const UpdateBike = () => {
   const { bikeID } = useParams();
@@ -75,6 +76,7 @@ const UpdateBike = () => {
 
   return (
     <div className="space-y-5 my-5">
+      <HelmetElement text="Update bike"/>
       <Headline text="Update Bike" />
       <form
         onSubmit={handleSubmit(onSubmit)}

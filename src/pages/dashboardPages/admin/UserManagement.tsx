@@ -7,6 +7,7 @@ import { useGetAllUsersQuery } from "../../../redux/features/user/userApi";
 import Loading from "../../../utils/Loading";
 import { ChangeEvent, useState } from "react";
 import NoData from "../../../utils/NoData";
+import HelmetElement from "../../../utils/HelmetElement";
 
 const UserManagement = () => {
   const [email, setEmail] = useState("");
@@ -30,6 +31,7 @@ const UserManagement = () => {
 
   return (
     <>
+    <HelmetElement text="User management"/>
       <div className="my-5 space-y-5">
         <Headline text="User Management" />
         <h1 className="flex items-center gap-2 font-bold">

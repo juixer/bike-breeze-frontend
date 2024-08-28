@@ -10,6 +10,7 @@ import NoData from "../utils/NoData";
 import { TBikeInfo } from "../Components/AllBikeTable/AllBikeTable";
 import { useState } from "react";
 import { TBrand } from "./dashboardPages/admin/AllBikes";
+import HelmetElement from "../utils/HelmetElement";
 
 const AvailableBikes = () => {
   const [name, setName] = useState("");
@@ -42,6 +43,7 @@ const AvailableBikes = () => {
 
   return (
     <div className="my-5">
+      <HelmetElement text="Available Bikes"/>
       <Headline text="Available Bikes" />
       <h1 className="flex items-center gap-2 font-bold">
         <FaFilter /> Filter

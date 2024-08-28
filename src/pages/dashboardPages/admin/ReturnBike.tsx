@@ -3,6 +3,7 @@ import ReturnBikeTable, {
 } from "../../../Components/ReturnBikeTable/ReturnBikeTable";
 import { useGetAllRentalsQuery } from "../../../redux/features/rentalApi/rentalAPi";
 import Headline from "../../../utils/Headline";
+import HelmetElement from "../../../utils/HelmetElement";
 import Loading from "../../../utils/Loading";
 import NoData from "../../../utils/NoData";
 
@@ -21,6 +22,7 @@ const ReturnBike = () => {
 
   return (
     <div className="my-5 space-y-5">
+      <HelmetElement text="Return Bike"/>
       <Headline text="Return Bikes" />
       {!rentalBikes || rentalBikes.data.length === 0 ? (
         <NoData />

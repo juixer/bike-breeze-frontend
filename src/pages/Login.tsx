@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { verifyToken } from "../utils/verifyToken";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
+import HelmetElement from "../utils/HelmetElement";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -52,6 +53,7 @@ const Login = () => {
 
   return (
     <div className="my-5 space-y-5">
+      <HelmetElement text="Login"/>
       <Headline text="Login" />
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -1,8 +1,10 @@
 import Lottie from "lottie-react";
 import paymentErrAni from "../assets/paymentFailed.json";
+import HelmetElement from "../utils/HelmetElement";
 const PaymentFailed = () => {
   return (
     <div className="flex flex-col gap-5 justify-center items-center">
+      <HelmetElement text="Payment failed"/>
       <div className="max-w-72 mx-auto">
         <Lottie animationData={paymentErrAni} loop={true} />
       </div>

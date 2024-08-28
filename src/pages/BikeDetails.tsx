@@ -5,6 +5,7 @@ import { useGetSingleBikeInfoQuery } from "../redux/features/admin/bikesApi";
 import Loading from "../utils/Loading";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import HelmetElement from "../utils/HelmetElement";
 
 const BikeDetails = () => {
   const { bikeID } = useParams();
@@ -20,6 +21,7 @@ const BikeDetails = () => {
   }
   return (
     <div className="space-y-5 my-5 ">
+      <HelmetElement text={bike.data.name}/>
       <div className="flex justify-center items-center flex-col md:flex-row gap-5">
         <PhotoProvider>
           <PhotoView src={bike.data.image}>

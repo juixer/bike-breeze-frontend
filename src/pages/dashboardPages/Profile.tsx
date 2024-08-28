@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { basicBtnClassName } from "../../constants";
 import { useGetUserProfileQuery } from "../../redux/features/user/userApi";
 import Loading from "../../utils/Loading";
+import HelmetElement from "../../utils/HelmetElement";
 
 const Profile = () => {
   const { data: userInfo, isLoading } = useGetUserProfileQuery(undefined);
@@ -13,6 +14,7 @@ const Profile = () => {
         </div>
       ) : (
         <div className="space-y-5 my-5">
+          <HelmetElement text="Profile"/>
           <h1 className="text-center text-2xl lg:text-4xl font-semibold uppercase ">
             Welcome To Dashboard {userInfo.data.name}
           </h1>
