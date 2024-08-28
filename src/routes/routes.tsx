@@ -20,6 +20,8 @@ import ProtectedAdminRoute from "../Components/layouts/ProtectedAdminRoute";
 import ErrorPage from "../pages/ErrorPage";
 import WriteReview from "../pages/WriteReview";
 import ReviewManagement from "../pages/dashboardPages/admin/ReviewManagement";
+import PaymentSuccess from "../pages/PaymentSuccess";
+import PaymentFailed from "../pages/PaymentFailed";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "/available-bikes",
         element: <AvailableBikes />,
+      },
+      {
+        path: "/payment-successful",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "/payment-failed",
+        element: <PaymentFailed />,
       },
       {
         path: "/bike/:bikeID",
