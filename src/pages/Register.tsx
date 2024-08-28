@@ -70,59 +70,71 @@ const Register = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center w-full space-y-5"
         >
-          <input
-            type="text"
-            placeholder="Enter your name here"
-            {...register("name", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter your name here"
+              {...register("name", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.name && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
 
-          <input
-            type="email"
-            placeholder="Enter your email here"
-            {...register("email", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Enter your password here"
-            {...register("password", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Enter your phone no. here"
-            {...register("phone", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Enter your address here"
-            {...register("address", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email here"
+              {...register("email", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.email && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter your password here"
+              {...register("password", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.password && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter your phone no. here"
+              {...register("phone", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.phone && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
+
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Enter your address here"
+              {...register("address", { required: true })}
+              className="input input-bordered  w-full rounded-md"
+            />
+            {errors.address && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
+
           <input
             type="file"
             {...register("profile_picture")}
             className="file-input file-input-bordered file-input-info  w-full lg:w-1/4 rounded-md bgsky6"
           />
-          <div className="w-full lg:w-1/4 flex flex-col">
-            {errors.name && (
-              <span className="text-red-500">Please enter your name</span>
-            )}
-            {errors.email && (
-              <span className="text-red-500">Please enter your email</span>
-            )}
-            {errors.password && (
-              <span className="text-red-500">Please enter your password</span>
-            )}
-            {errors.phone && (
-              <span className="text-red-500">Please enter your phone no.</span>
-            )}
-            {errors.address && (
-              <span className="text-red-500">Please enter your address</span>
-            )}
-          </div>
 
           <button
             className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-1/4`}

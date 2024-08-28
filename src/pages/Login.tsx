@@ -39,7 +39,10 @@ const Login = () => {
       navigate(location.state ? location.state : "/dashboard/profile");
     } catch (error) {
       console.log(error);
-      toast.warning("Email or Password might be incorrect!", { duration: 3000, id: toastId });
+      toast.warning("Email or Password might be incorrect!", {
+        duration: 3000,
+        id: toastId,
+      });
     }
   };
 
@@ -60,18 +63,30 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center w-full space-y-3"
         >
-          <input
-            type="email"
-            placeholder="Enter your email here"
-            {...register("email", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
-          />
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email here"
+              {...register("email", { required: true })}
+              className="input input-bordered  w-full  rounded-md"
+            />
+            {errors.email && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
+
+          
+          <div className="w-full lg:w-1/4 flex flex-col gap-2">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password here"
             {...register("password", { required: true })}
-            className="input input-bordered  w-full lg:w-1/4 rounded-md"
+            className="input input-bordered  w-full rounded-md"
           />
+            {errors.password && (
+              <span className="text-red-500">This Field is required</span>
+            )}
+          </div>
           <div className="w-full lg:w-1/4 flex flex-row items-center gap-2">
             <input
               onChange={handleShowPassChange}
@@ -83,15 +98,6 @@ const Login = () => {
               Show Password
             </label>
           </div>
-          <div className="w-full lg:w-1/4 flex flex-col">
-            {errors.email && (
-              <span className="text-red-500">Please enter your email</span>
-            )}
-            {errors.password && (
-              <span className="text-red-500">Please enter your password</span>
-            )}
-          </div>
-
           <button
             className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-1/4`}
           >

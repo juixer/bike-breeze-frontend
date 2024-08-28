@@ -17,6 +17,7 @@ import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut, TUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
+import { FaPercentage } from "react-icons/fa";
 
 const DashboardNav = () => {
   const [theme, setTheme] = useState(
@@ -128,6 +129,23 @@ const DashboardNav = () => {
             to={"/dashboard/review-management"}
           >
             <FaStar /> Review Management
+          </NavLink>
+        </li>
+      </div>
+      {/* 05 */}
+      <div className="space-y-2">
+        <label className="font-bold ">Coupon Management</label>
+        <hr />
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `hover:duration-300 text-base font-semibold ${
+                isActive && "bg-sky-500 bg-opacity-20"
+              }`
+            }
+            to={"/dashboard/coupon-management"}
+          >
+            <FaPercentage/> Coupon Management
           </NavLink>
         </li>
       </div>

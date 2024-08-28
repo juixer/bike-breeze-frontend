@@ -23,6 +23,7 @@ import ReviewManagement from "../pages/dashboardPages/admin/ReviewManagement";
 import PaymentSuccess from "../pages/PaymentSuccess";
 import PaymentFailed from "../pages/PaymentFailed";
 import SearchTermBike from "../pages/SearchTermBike";
+import CouponManagement from "../pages/dashboardPages/admin/CouponManagement";
 
 const router = createBrowserRouter([
   {
@@ -172,6 +173,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedAdminRoute>
             <ReviewManagement />
+          </ProtectedAdminRoute>
+        ),
+      },
+      {
+        path: "coupon-management",
+        element: (
+          <ProtectedAdminRoute>
+            <CouponManagement />
           </ProtectedAdminRoute>
         ),
       },

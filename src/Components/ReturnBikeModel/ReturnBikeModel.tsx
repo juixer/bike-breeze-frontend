@@ -1,4 +1,4 @@
-import { FaCircleCheck, FaX } from "react-icons/fa6";
+import {  FaX } from "react-icons/fa6";
 import { basicBtnClassName } from "../../constants";
 import { toast } from "sonner";
 import { useReturnRentalMutation } from "../../redux/features/rentalApi/rentalAPi";
@@ -59,8 +59,7 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
           ) as HTMLDialogElement;
           modal.showModal();
         }}
-      >
-        <FaCircleCheck /> Return
+      > Calculate
       </button>
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box border">

@@ -52,7 +52,7 @@ const SearchTermBike = () => {
         </div>
         <div className="my-5 flex justify-center items-center">
           <Link to={'/available-bikes'}>
-            <button className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 text-white duration-300`}>See All Available bikes</button>
+            <button className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 text-white duration-300`}>See More Bikes</button>
           </Link>
         </div>
       </div>
