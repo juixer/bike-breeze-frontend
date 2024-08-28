@@ -2,10 +2,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
-import './styles.css';
+import "./styles.css";
 
 // import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
@@ -14,6 +14,7 @@ import Headline from "../../utils/Headline";
 import { useGetMostRentedBikeQuery } from "../../redux/features/admin/bikesApi";
 import Loading from "../../utils/Loading";
 import { TBikeInfo } from "../AllBikeTable/AllBikeTable";
+import NoData from "../../utils/NoData";
 
 const Featured = () => {
   const { data: mostRented, isLoading } = useGetMostRentedBikeQuery(undefined, {
@@ -29,11 +30,7 @@ const Featured = () => {
   }
 
   if (!mostRented || mostRented.data.length === 0) {
-    return (
-      <div>
-        <p>No data available</p>
-      </div>
-    );
+    return <NoData />;
   }
   return (
     <div className="space-y-5">
@@ -67,7 +64,10 @@ const Featured = () => {
         className="mySwiper"
       >
         {mostRented.data.map((rented: TBikeInfo, index: string) => (
-          <SwiperSlide key={index} className="flex justify-center items-center py-5 mb-5">
+          <SwiperSlide
+            key={index}
+            className="flex justify-center items-center py-5 mb-5"
+          >
             <BikeCard rented={rented} />
           </SwiperSlide>
         ))}

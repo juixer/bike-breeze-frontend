@@ -1,32 +1,24 @@
 import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
-const ReviewCard = () => {
+import { TReviewInfo } from "../Components/ReviewTables/VerifiedReviewTable";
+const ReviewCard = ({ review }: { review: TReviewInfo }) => {
   return (
-    <div className="mx-2 border border-sky-300 rounded-md p-2 shadow-xl h-60 flex flex-col">
+    <div className="mx-2 border  border-sky-300 rounded-md shadow-xl h-60 flex flex-col">
       <div className="flex gap-5 items-center flex-grow">
-        <div className="flex items-center flex-col gap-2">
-          <img
-            src="https://i.ibb.co/CmmRr9W/shanto-as-an-anime-character.jpg"
-            className="rounded-full w-32 h-32"
-            alt="Reviewer's Avatar"
-          />
-        </div>
-        <div className="flex-grow">
+        <img src={review.image} className=" w-40 rounded-l-md h-full object-cover" />
+        <div className="flex-grow h-full p-2">
+          <h1 className="font-semibold text-sm">{review.name}</h1>
+          <h1 className="text-xs">Bike:{review.bikeName}</h1>
           <div>
             <Rating
               className="rounded-md"
-              style={{ maxWidth: 100 }}
+              style={{ maxWidth: 80 }}
               readOnly
-              value={3}
+              value={review.rating}
             />
           </div>
-          <h1 className="font-semibold">Ashfakul Islam</h1>
-          <p className="max-w-72 overflow-hidden font-extralight text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            est, eaque delectus, saepe doloribus atque blanditiis molestias
-            ipsum incidunt porro magnam.
-          </p>
+          <p className="max-w-60 overflow-hidden">{review.comment}</p>
         </div>
       </div>
     </div>
