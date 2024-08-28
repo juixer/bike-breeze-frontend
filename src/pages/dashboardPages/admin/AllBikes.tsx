@@ -14,6 +14,7 @@ import { useState } from "react";
 export type TBrand = {
   _id: number;
   brand: string;
+  name: string;
 };
 
 const AllBikes = () => {
@@ -46,7 +47,6 @@ const AllBikes = () => {
       </div>
     );
   }
-
 
   return (
     <>

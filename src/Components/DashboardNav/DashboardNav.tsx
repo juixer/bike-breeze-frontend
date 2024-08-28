@@ -10,6 +10,7 @@ import {
   FaPen,
   FaPenToSquare,
   FaRegUser,
+  FaStar,
   FaUserGroup,
 } from "react-icons/fa6";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
@@ -110,6 +111,23 @@ const DashboardNav = () => {
             to={"/dashboard/user-management"}
           >
             <FaUserGroup /> User Management
+          </NavLink>
+        </li>
+      </div>
+      {/* 04 */}
+      <div className="space-y-2">
+        <label className="font-bold ">Review Management</label>
+        <hr />
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `hover:duration-300 text-base font-semibold ${
+                isActive && "bg-sky-500 bg-opacity-20"
+              }`
+            }
+            to={"/dashboard/review-management"}
+          >
+            <FaStar /> Review Management
           </NavLink>
         </li>
       </div>

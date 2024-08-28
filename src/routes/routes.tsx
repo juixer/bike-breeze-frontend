@@ -18,12 +18,14 @@ import ReturnBike from "../pages/dashboardPages/admin/ReturnBike";
 import ProtectedRoute from "../Components/layouts/ProtectedRoute";
 import ProtectedAdminRoute from "../Components/layouts/ProtectedAdminRoute";
 import ErrorPage from "../pages/ErrorPage";
+import WriteReview from "../pages/WriteReview";
+import ReviewManagement from "../pages/dashboardPages/admin/ReviewManagement";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -53,12 +55,20 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "/write-review",
+        element: (
+          <ProtectedRoute>
+            <WriteReview />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   {
     path: "/dashboard",
     element: <Dashboard />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -139,6 +149,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedAdminRoute>
             <ReturnBike />
+          </ProtectedAdminRoute>
+        ),
+      },
+      {
+        path: "review-management",
+        element: (
+          <ProtectedAdminRoute>
+            <ReviewManagement />
           </ProtectedAdminRoute>
         ),
       },

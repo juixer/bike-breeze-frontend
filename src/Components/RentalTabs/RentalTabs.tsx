@@ -8,7 +8,6 @@ import { TRentalInfo } from "../ReturnBikeTable/ReturnBikeTable";
 const RentalTabs = () => {
   const { data: rentalData, isLoading } = useGetUserRentalsQuery(undefined);
 
-  console.log(rentalData);
   if (isLoading) {
     return (
       <div className="min-h-[95vh] flex justify-center items-center">
