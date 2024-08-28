@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Headline from "../utils/Headline";
 import { basicBtnClassName } from "../constants";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { verifyToken } from "../utils/verifyToken";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
 import HelmetElement from "../utils/HelmetElement";
+import FramerContainer from "../Components/layouts/FramerContainer";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +17,6 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
 
   const {
     register,
@@ -39,7 +39,7 @@ const Login = () => {
       navigate(location.state ? location.state : "/dashboard/profile");
     } catch (error) {
       console.log(error);
-      toast.warning("Something went wrong...", { duration: 3000, id: toastId });
+      toast.warning("Email or Password might be incorrect!", { duration: 3000, id: toastId });
     }
   };
 
@@ -52,63 +52,65 @@ const Login = () => {
   };
 
   return (
-    <div className="my-5 space-y-5">
-      <HelmetElement text="Login"/>
-      <Headline text="Login" />
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center w-full space-y-3"
-      >
-        <input
-          type="email"
-          placeholder="Enter your email here"
-          {...register("email", { required: true })}
-          className="input input-bordered  w-full lg:w-1/4 rounded-md"
-        />
-        <input
-          type={showPassword ? "text" : "password"}
-          placeholder="Enter your password here"
-          {...register("password", { required: true })}
-          className="input input-bordered  w-full lg:w-1/4 rounded-md"
-        />
-        <div className="w-full lg:w-1/4 flex flex-row items-center gap-2">
-          <input
-            onChange={handleShowPassChange}
-            type="checkbox"
-            id="showPass"
-            className="checkbox rounded"
-          />
-          <label className="checkbox-label" htmlFor="showPass">
-            Show Password
-          </label>
-        </div>
-        <div className="w-full lg:w-1/4 flex flex-col">
-          {errors.email && (
-            <span className="text-red-500">Please enter your email</span>
-          )}
-          {errors.password && (
-            <span className="text-red-500">Please enter your password</span>
-          )}
-        </div>
-
-        <button
-          className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-1/4`}
+    <FramerContainer>
+      <div className="my-5 space-y-5">
+        <HelmetElement text="Login" />
+        <Headline text="Login" />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col items-center w-full space-y-3"
         >
-          Log In
-        </button>
+          <input
+            type="email"
+            placeholder="Enter your email here"
+            {...register("email", { required: true })}
+            className="input input-bordered  w-full lg:w-1/4 rounded-md"
+          />
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter your password here"
+            {...register("password", { required: true })}
+            className="input input-bordered  w-full lg:w-1/4 rounded-md"
+          />
+          <div className="w-full lg:w-1/4 flex flex-row items-center gap-2">
+            <input
+              onChange={handleShowPassChange}
+              type="checkbox"
+              id="showPass"
+              className="checkbox rounded"
+            />
+            <label className="checkbox-label" htmlFor="showPass">
+              Show Password
+            </label>
+          </div>
+          <div className="w-full lg:w-1/4 flex flex-col">
+            {errors.email && (
+              <span className="text-red-500">Please enter your email</span>
+            )}
+            {errors.password && (
+              <span className="text-red-500">Please enter your password</span>
+            )}
+          </div>
 
-        <div>
-          <p>
-            Don't have an account?{" "}
-            <Link to={"/register"}>
-              <span className="text-sky-700 font-semibold cursor-pointer">
-                Register
-              </span>
-            </Link>
-          </p>
-        </div>
-      </form>
-    </div>
+          <button
+            className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-1/4`}
+          >
+            Log In
+          </button>
+
+          <div>
+            <p>
+              Don't have an account?{" "}
+              <Link to={"/register"}>
+                <span className="text-sky-700 font-semibold cursor-pointer">
+                  Register
+                </span>
+              </Link>
+            </p>
+          </div>
+        </form>
+      </div>
+    </FramerContainer>
   );
 };
 export default Login;

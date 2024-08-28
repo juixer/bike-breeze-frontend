@@ -1,3 +1,4 @@
+import FramerContainer from "../../../Components/layouts/FramerContainer";
 import ReturnBikeTable, {
   TRentalInfo,
 } from "../../../Components/ReturnBikeTable/ReturnBikeTable";
@@ -21,35 +22,37 @@ const ReturnBike = () => {
   }
 
   return (
-    <div className="my-5 space-y-5">
-      <HelmetElement text="Return Bike"/>
-      <Headline text="Return Bikes" />
-      {!rentalBikes || rentalBikes.data.length === 0 ? (
-        <NoData />
-      ) : (
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Customer Name</th>
-                <th>Customer Email</th>
-                <th>Start Time</th>
-                <th>Return</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rentalBikes.data.map((rental: TRentalInfo, index: string) => {
-                return <ReturnBikeTable key={index} rental={rental} />;
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+    <FramerContainer>
+      <div className="my-5 space-y-5">
+        <HelmetElement text="Return Bike" />
+        <Headline text="Return Bikes" />
+        {!rentalBikes || rentalBikes.data.length === 0 ? (
+          <NoData />
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Customer Name</th>
+                  <th>Customer Email</th>
+                  <th>Start Time</th>
+                  <th>Return</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rentalBikes.data.map((rental: TRentalInfo, index: string) => {
+                  return <ReturnBikeTable key={index} rental={rental} />;
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </FramerContainer>
   );
 };
 export default ReturnBike;

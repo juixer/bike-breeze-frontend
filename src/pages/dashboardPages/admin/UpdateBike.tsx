@@ -10,6 +10,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import axios from "axios";
 import HelmetElement from "../../../utils/HelmetElement";
+import FramerContainer from "../../../Components/layouts/FramerContainer";
 
 const UpdateBike = () => {
   const { bikeID } = useParams();
@@ -75,74 +76,76 @@ const UpdateBike = () => {
   }
 
   return (
-    <div className="space-y-5 my-5">
-      <HelmetElement text="Update bike"/>
-      <Headline text="Update Bike" />
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center w-full space-y-5"
-      >
-        <input
-          type="text"
-          defaultValue={bike.data.name}
-          {...register("name")}
-          placeholder="Enter bike name here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <input
-          type="text"
-          defaultValue={bike.data.brand}
-          {...register("brand")}
-          placeholder="Enter bike brand here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <input
-          type="text"
-          {...register("model")}
-          defaultValue={bike.data.model}
-          placeholder="Enter bike model here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <input
-          type="number"
-          defaultValue={bike.data.pricePerHour}
-          {...register("pricePerHour")}
-          placeholder="Enter bike price here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <input
-          type="number"
-          defaultValue={bike.data.cc}
-          {...register("cc")}
-          placeholder="Enter bike cc here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <input
-          type="number"
-          defaultValue={bike.data.year}
-          {...register("year")}
-          placeholder="Enter bike release year here"
-          className="input input-bordered  w-full lg:w-2/4 rounded-md"
-        />
-        <textarea
-          defaultValue={bike.data.description}
-          {...register("description")}
-          className="textarea textarea-bordered w-full lg:w-2/4 rounded-md h-32"
-          placeholder="Enter bike description"
-        ></textarea>
-        <input
-          type="file"
-          {...register("image")}
-          className="file-input file-input-bordered file-input-info  w-full lg:w-2/4 rounded-md bgsky6"
-        />
-
-        <button
-          className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-2/4`}
+    <FramerContainer>
+      <div className="space-y-5 my-5">
+        <HelmetElement text="Update bike" />
+        <Headline text="Update Bike" />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col items-center w-full space-y-5"
         >
-          Update
-        </button>
-      </form>
-    </div>
+          <input
+            type="text"
+            defaultValue={bike.data.name}
+            {...register("name")}
+            placeholder="Enter bike name here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <input
+            type="text"
+            defaultValue={bike.data.brand}
+            {...register("brand")}
+            placeholder="Enter bike brand here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <input
+            type="text"
+            {...register("model")}
+            defaultValue={bike.data.model}
+            placeholder="Enter bike model here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <input
+            type="number"
+            defaultValue={bike.data.pricePerHour}
+            {...register("pricePerHour")}
+            placeholder="Enter bike price here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <input
+            type="number"
+            defaultValue={bike.data.cc}
+            {...register("cc")}
+            placeholder="Enter bike cc here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <input
+            type="number"
+            defaultValue={bike.data.year}
+            {...register("year")}
+            placeholder="Enter bike release year here"
+            className="input input-bordered  w-full lg:w-2/4 rounded-md"
+          />
+          <textarea
+            defaultValue={bike.data.description}
+            {...register("description")}
+            className="textarea textarea-bordered w-full lg:w-2/4 rounded-md h-32"
+            placeholder="Enter bike description"
+          ></textarea>
+          <input
+            type="file"
+            {...register("image")}
+            className="file-input file-input-bordered file-input-info  w-full lg:w-2/4 rounded-md bgsky6"
+          />
+
+          <button
+            className={`${basicBtnClassName} bg-sky-600 hover:bg-sky-700 duration-300 text-white  w-full lg:w-2/4`}
+          >
+            Update
+          </button>
+        </form>
+      </div>
+    </FramerContainer>
   );
 };
 export default UpdateBike;
