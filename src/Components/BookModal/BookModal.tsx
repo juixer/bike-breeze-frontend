@@ -15,8 +15,10 @@ const BookModal = ({ bikeID }: { bikeID: string }) => {
       const timeValue = form.time.value;
 
       if (dateValue && timeValue) {
+        const localDateTime = new Date(`${dateValue}T${timeValue}:00`);
         const formattedDateTime = new Date(
-          `${dateValue}T${timeValue}:00Z`
+          localDateTime.getTime() -
+            (localDateTime.getTimezoneOffset() + 360) * 60000
         ).toISOString();
 
         const rentalInfo = {
@@ -24,20 +26,20 @@ const BookModal = ({ bikeID }: { bikeID: string }) => {
           startTime: formattedDateTime,
         };
 
-        toast.loading("Please wait...",{duration:5000})
+        toast.loading("Please wait...", { duration: 5000 });
         const rentalResult = await createRental(rentalInfo).unwrap();
-        
-        if(rentalResult.success){
-          window.location.href = rentalResult.data.payment_url
-        }else{
-          toast.error("Failed to book a rental")
+
+        if (rentalResult.success) {
+          window.location.href = rentalResult.data.payment_url;
+        } else {
+          toast.error("Failed to book a rental");
         }
       } else {
         toast.warning("Date and time must be selected.", { duration: 3000 });
       }
     } catch (error) {
       console.log(error);
-      toast.warning("Something went wrong...", { duration: 3000});
+      toast.warning("Something went wrong...", { duration: 3000 });
     }
   };
   return (
@@ -65,9 +67,11 @@ const BookModal = ({ bikeID }: { bikeID: string }) => {
             </form>
           </div>
           <div className="my-3">
-            <h1 className="font-bold">Please select your rental date and time</h1>
+            <h1 className="font-bold">
+              Please select your rental date and time
+            </h1>
           </div>
-          <div >
+          <div>
             <form onSubmit={handleBook} className="space-y-4">
               <h1 className="font-semibold">Date</h1>
               <input
@@ -81,12 +85,12 @@ const BookModal = ({ bikeID }: { bikeID: string }) => {
                 name="time"
                 className="input input-bordered rounded-md w-full"
               />
-              
+
               <div>
                 <p className="font-semibold">
-                 <span>Note: </span>
+                  <span>Note: </span>
                   <span className="text-red-600">
-                   You have to pay advanced 100TK first
+                    You have to pay advanced 100TK first
                   </span>
                 </p>
               </div>

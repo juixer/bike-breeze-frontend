@@ -23,18 +23,20 @@ const Reviews = () => {
     );
   }
 
-  if (!latestReview || latestReview.data.length === 0) {
-    return <NoData />;
-  }
+
   return (
     <div className="space-y-5">
       <Headline text="reviews" />
-      <div>
+      {!latestReview || latestReview.data.length === 0 ? (
+        <NoData />
+      ) : (
         <Marquee className="pb-8">
           {latestReview.data.map((review: TReviewInfo, index: string) => {
             return <ReviewCard key={index} review={review} />;
           })}
         </Marquee>
+      )}
+      <div>
         <div className="flex justify-center items-center">
           <Link to="/write-review">
             <button

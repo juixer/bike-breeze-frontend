@@ -193,14 +193,14 @@ const DashboardNav = () => {
   );
 
   return (
-    <div>
+    <div className="lg:sticky lg:top-0">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content py-2 flex flex-col items-center justify-center">
           {/* Page content here */}
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden rounded-md"
+            className="btn btn-primary drawer-button w-full lg:hidden rounded-md"
           >
             <FaBars />
           </label>

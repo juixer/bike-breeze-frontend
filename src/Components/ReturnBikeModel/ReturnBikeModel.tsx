@@ -1,4 +1,4 @@
-import {  FaX } from "react-icons/fa6";
+import { FaX } from "react-icons/fa6";
 import { basicBtnClassName } from "../../constants";
 import { toast } from "sonner";
 import { useReturnRentalMutation } from "../../redux/features/rentalApi/rentalAPi";
@@ -14,8 +14,10 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
       const timeValue = form.time.value;
 
       if (dateValue && timeValue) {
+        const localDateTime = new Date(`${dateValue}T${timeValue}:00`);
         const formattedDateTime = new Date(
-          `${dateValue}T${timeValue}:00Z`
+          localDateTime.getTime() -
+            (localDateTime.getTimezoneOffset() + 360) * 60000
         ).toISOString();
 
         const rentalInfo = {
@@ -59,7 +61,9 @@ const ReturnBikeModel = ({ rentalId }: { rentalId: string }) => {
           ) as HTMLDialogElement;
           modal.showModal();
         }}
-      > Calculate
+      >
+        {" "}
+        Calculate
       </button>
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box border">

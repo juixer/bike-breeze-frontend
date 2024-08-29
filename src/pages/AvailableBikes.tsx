@@ -33,9 +33,17 @@ const AvailableBikes = () => {
     pollingInterval: 15000,
   });
 
-  const { data: brands } = useGetBikeBrandQuery(undefined);
+  const { data: brands,isLoading :BrandLoading } = useGetBikeBrandQuery(undefined);
 
   if (isLoading) {
+    return (
+      <div className="min-h-[95vh] flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
+
+  if (BrandLoading) {
     return (
       <div className="min-h-[95vh] flex justify-center items-center">
         <Loading />

@@ -1,14 +1,15 @@
-import moment from "moment";
+import moment from 'moment-timezone';
 import { TRentalInfo } from "../ReturnBikeTable/ReturnBikeTable";
 import ApplyCouponModal from "../ApplyCouponModal/ApplyCouponModal";
 
 const UnpaidTables = ({ unpaid }: { unpaid: TRentalInfo }) => {
-  const formattedStartTime = moment(unpaid.startTime).format(
-    "MMMM Do, YYYY, h:mm:ss A"
-  );
-  const formattedReturnTime = moment(unpaid.returnTime).format(
-    "MMMM Do, YYYY, h:mm:ss A"
-  );
+  const formattedStartTime = moment(unpaid.startTime)
+  .tz('Asia/Dhaka')
+  .format('MMMM Do, YYYY, h:mm:ss A');
+
+const formattedReturnTime = moment(unpaid.returnTime)
+  .tz('Asia/Dhaka')
+  .format('MMMM Do, YYYY, h:mm:ss A');
 
   return (
     <>

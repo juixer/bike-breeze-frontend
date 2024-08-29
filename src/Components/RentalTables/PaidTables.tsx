@@ -1,13 +1,14 @@
-import moment from "moment";
+import moment from 'moment-timezone';
 import { TRentalInfo } from "../ReturnBikeTable/ReturnBikeTable";
 
 const PaidTables = ({ paid }: { paid: TRentalInfo }) => {
-  const formattedStartTime = moment(paid.startTime).format(
-    "MMMM Do, YYYY, h:mm:ss A"
-  );
-  const formattedReturnTime = moment(paid.returnTime).format(
-    "MMMM Do, YYYY, h:mm:ss A"
-  );
+  const formattedStartTime = moment(paid.startTime)
+  .tz('Asia/Dhaka')
+  .format('MMMM Do, YYYY, h:mm:ss A');
+
+const formattedReturnTime = moment(paid.returnTime)
+  .tz('Asia/Dhaka')
+  .format('MMMM Do, YYYY, h:mm:ss A');
 
   return (
     <tr className="hover">

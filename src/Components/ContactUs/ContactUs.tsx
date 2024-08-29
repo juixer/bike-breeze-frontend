@@ -63,7 +63,7 @@ const ContactUs = () => {
           <input
             type="text"
             name="user_subject"
-            placeholder="Type your email here"
+            placeholder="Type your subject here"
             className="input input-bordered w-full lg:w-96"
           />
           <textarea
